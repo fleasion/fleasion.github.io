@@ -1,7 +1,10 @@
 :root {
     white-space: nowrap;
     background-size: 400% 400vh;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 100 800;
+    font-display: swap;
     margin: 0;
     font-size: 24px;
     padding: 20px;
@@ -9,7 +12,7 @@
     animation: 4s fade forwards, 4s bgfade forwards, motion 5s forwards infinite;
     animation-timing-function: linear;
 }
-
+ 
 @keyframes motion {
     0% {
         background-position-y: 0%;
@@ -45,11 +48,11 @@
 
 .slogan {
     margin-left: -70%;
-    margin-top: 15%;
+    margin-top: 25%;
 }
 
 .download {
-    margin-top: -5%;
+    margin-top: -7.5%;
     margin-left: 15%;
     background-color: rgba(0, 0, 0, 0.5);
     width: fit-content;
