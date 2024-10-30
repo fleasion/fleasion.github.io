@@ -41,7 +41,11 @@
 }
 
 .underscore {
-    text-decoration: underline;
+    text-decoration: underline
+}
+
+.italic {
+    font-style: italic
 }
 
 .hyperlink {
@@ -61,7 +65,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     width: fit-content;
     height: auto;
-    padding: 15px 35px;
+    padding: 15px 25px;
     border-radius: 20px;
 }
 
