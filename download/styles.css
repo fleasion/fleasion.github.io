@@ -1,0 +1,98 @@
+:root {
+    white-space: nowrap;
+    background-size: 400% 400vh;
+    font-family: 'JetBrains Mono', monospace;
+    margin: 0;
+    font-size: 24px;
+    padding: 20px;
+    color: #7ebcff;
+    animation: 4s fade forwards, 4s bgfade forwards, motion 5s forwards infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes motion {
+    0% {
+        background-position-y: 0%;
+    }
+    100% {
+        background-position-y: 100%;
+    }
+  }
+
+.image-container {
+    position: absolute;
+}
+
+.image {
+    margin-left: -50%;
+}
+
+.underscore {
+    text-decoration: underline;
+}
+
+.centered {
+    margin-top: -7.5%;
+    margin-left: 37.5%;
+    position: fixed;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 20%;
+    height: 7%;
+    padding: 15px 0px;
+    border-radius: 20px;
+}
+
+.slogan {
+    margin-left: -70%;
+}
+
+.download {
+    margin-top: 0%;
+    margin-left: 15%;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: fit-content;
+    padding: 25 35px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.bottomtext {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    font-size:12px;
+}
+
+.download-text {
+    margin-top: 10%;
+    margin-left: 25%;
+    font-size: 24px;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: fit-content;
+    padding: 25 35px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes bgfade {
+    0% {
+        background-color: #000000
+    }
+    99% {
+        background-color: #31489a;
+    }
+    100% {
+        background-image: linear-gradient(to bottom, #152661, #3a3570, #49265d, #1d1135, #152661);
+    }
+}

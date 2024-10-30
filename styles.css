@@ -1,12 +1,12 @@
 :root {
-    
-    background-size: 200% 400vh;
+    white-space: nowrap;
+    background-size: 400% 400vh;
     font-family: 'JetBrains Mono', monospace;
     margin: 0;
     font-size: 24px;
     padding: 20px;
     color: #7ebcff;
-    animation: 4s fade forwards, 4s bgfade forwards, motion 5s forwards infinite alternate;
+    animation: 4s fade forwards, 4s bgfade forwards, motion 5s forwards infinite;
     animation-timing-function: linear;
 }
 
@@ -15,30 +15,42 @@
         background-position-y: 0%;
     }
     100% {
-        background-position-y: 80%;
+        background-position-y: 100%;
     }
   }
 
 .image-container {
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
+    position: absolute;
+}
+
+.image {
+    margin-left: -50%;
+}
+
+.underscore {
+    text-decoration: underline;
 }
 
 .centered {
-    margin-top: 2.5%;
-    margin-bottom: 0%;
+    margin-top: 0%;
     margin-left: 37.5%;
+    position: absolute;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.5);
     width: 20%;
-    height: 7.5%;
-    padding: 10px;
+    height: 7%;
+    padding: 15px 0px;
     border-radius: 20px;
 }
 
+.slogan {
+    margin-left: -70%;
+    margin-top: 15%;
+}
+
 .download {
-    margin-left: 42.5%;
+    margin-top: -5%;
+    margin-left: 15%;
     background-color: rgba(0, 0, 0, 0.5);
     width: fit-content;
     padding: 25 35px;
@@ -52,7 +64,6 @@
     bottom: 0;
     transform: translateX(-50%);
     font-size:12px;
-    white-space: nowrap
 }
 
 .download-text {
@@ -83,6 +94,6 @@
         background-color: #31489a;
     }
     100% {
-        background-image: linear-gradient(to bottom, #1d1135, #152661, #3a3570, #49265d);
+        background-image: linear-gradient(to bottom, #1d1135, #152661, #3a3570, #49265d, #1d1135);
     }
 }
