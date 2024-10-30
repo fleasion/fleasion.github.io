@@ -1,37 +1,84 @@
 @font-face {
     font-family: 'JetBrains Mono';
-    src: url('fonts/JetBrainsMono-Regular.woff2') format('woff2');
+    src: url('misc/fonts/JetBrainsMono-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
   }
   
   @font-face {
     font-family: 'JetBrains Mono';
-    src: url('fonts/JetBrainsMono-Bold.woff2') format('woff2');
+    src: url('misc/fonts/JetBrainsMono-Bold.woff2') format('woff2');
     font-weight: bold;
     font-style: normal;
   }
 
-:root {
-    white-space: nowrap;
-    background-size: 400% 400vh;
+  :root {
     font-family: 'JetBrains Mono', monospace;
-    margin: 0;
     font-size: 24px;
-    padding: 20px;
+    font-display: swap;
     color: #7ebcff;
-    animation: 4s fade forwards, 4s bgfade forwards, motion 10s forwards infinite alternate;
+    white-space: wrap;
+    background-size: 400% 400vh;
+    animation: 2.5s fade forwards, 4s bgfade forwards, motion 10s forwards infinite alternate;
     animation-timing-function: linear;
 }
- 
-@keyframes motion {
-    0% {
-        background-position-y: 0%;
-    }
-    100% {
-        background-position-y: 100%;
-    }
-  }
+
+.hyperlink {
+    color:#3f46d2
+}
+.hyperlink:visited {
+    color:#a659d2
+}
+.hyperlink:active {
+    color:#ffffff
+}
+.underscore {
+    text-decoration: underline;
+}
+.nodeco {
+    text-decoration: none;
+}
+
+.github {
+    position: fixed;
+    left: 0%;
+    top: 45%;
+    transform: translateY(-50%);
+    margin: 2.5%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 25px 25px;
+    border-radius: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.discord {
+    position: fixed;
+    right: 0%;
+    top: 45%;
+    transform: translateY(-50%);
+    margin: 2.5%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 25px 25px;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.github,
+.discord,
+.download,
+.faq {
+  transition: transform 0.6s ease;
+}
+
+.github:hover,
+.discord:hover {
+    transform: translateY(-50%) scale(1.25);
+}
+
+.download:hover,
+.faq:hover {
+    transform: scale(1.1);
+}
 
 .tutorial { 
     display: flex;
@@ -59,8 +106,8 @@
 }
 
 .title {
-    margin-top: 0%;
     margin: 0 auto;
+    margin-top: 2.5%;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.5);
     width: fit-content;
@@ -75,20 +122,29 @@
     text-align: center;
 }
 
-.download {
+.buttons {
     margin: 0 auto;
     margin-top: 1%;
+    display: flex;
+    justify-content: space-between;
+    width: 450px;
+}
+
+.faq {
     background-color: rgba(0, 0, 0, 0.5);
     width: fit-content;
-    padding: 15px 35px;
+    padding: 15px 25px;
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-
-
-
-
+.download {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: fit-content;
+    padding: 15px 25px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
 .bottomtext {
     position: fixed;
@@ -96,18 +152,28 @@
     bottom: 0;
     transform: translateX(-50%);
     font-size:12px;
+    width: 100%;
 }
 
 .download-text {
+    margin: 0 auto;
     margin-top: 2.5%;
-    margin-left: 25%;
     font-size: 24px;
     background-color: rgba(0, 0, 0, 0.5);
     width: fit-content;
-    padding: 25 35px;
+    padding: 25px 25px;
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+@keyframes motion {
+    0% {
+        background-position-y: 0%;
+    }
+    100% {
+        background-position-y: 100%;
+    }
+  }
 
 @keyframes fade {
     0% {
