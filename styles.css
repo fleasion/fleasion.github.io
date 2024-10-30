@@ -1,16 +1,88 @@
 :root {
-    background-color: #000000
-}
-
-body {
+    
+    background-size: 200% 400vh;
     font-family: 'JetBrains Mono', monospace;
     margin: 0;
+    font-size: 24px;
     padding: 20px;
-    color: #333;
+    color: #7ebcff;
+    animation: 4s fade forwards, 4s bgfade forwards, motion 5s forwards infinite alternate;
+    animation-timing-function: linear;
 }
-h1 {
-    color: #0056b3;
+
+@keyframes motion {
+    0% {
+        background-position-y: 0%;
+    }
+    100% {
+        background-position-y: 80%;
+    }
+  }
+
+.image-container {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
 }
-p {
-    line-height: 1.6;
+
+.centered {
+    margin-top: 2.5%;
+    margin-bottom: 0%;
+    margin-left: 37.5%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 20%;
+    height: 7.5%;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.download {
+    margin-left: 42.5%;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: fit-content;
+    padding: 25 35px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.bottomtext {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    font-size:12px;
+    white-space: nowrap
+}
+
+.download-text {
+    margin-top: 2.5%;
+    margin-left: 25%;
+    font-size: 24px;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: fit-content;
+    padding: 25 35px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes bgfade {
+    0% {
+        background-color: #000000
+    }
+    99% {
+        background-color: #31489a;
+    }
+    100% {
+        background-image: linear-gradient(to bottom, #1d1135, #152661, #3a3570, #49265d);
+    }
 }
