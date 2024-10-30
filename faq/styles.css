@@ -40,10 +40,10 @@
 
 
 .hyperlink {
-    color:#00bcd4;
+    color:#658eff
 }
 .hyperlink:visited {
-    color:#a659d2
+    color:#3a55a2
 }
 .hyperlink:active {
     color:#ffffff
@@ -133,9 +133,9 @@
         background-color: #000000
     }
     99% {
-        background-color: #31489a;
+        background-color: #352665;
     }
     100% {
-        background-image: linear-gradient(to bottom, #4b3a85, #3a2668, #281542, #1a1a5b, #4b3a85, #3a2668);
+        background-image: linear-gradient(to bottom, #352665, #241449, #220e3d, #11115a, #352665, #241449);
     }
 }
