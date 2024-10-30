@@ -3,14 +3,28 @@
     src: url('../misc/fonts/JetBrainsMono-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
-  }
+}
   
-  @font-face {
+@font-face {
     font-family: 'JetBrains Mono';
     src: url('../misc/fonts/JetBrainsMono-Bold.woff2') format('woff2');
     font-weight: bold;
     font-style: normal;
-  }
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('../misc/fonts/JetBrainsMono-ExtraBold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('../misc/fonts/JetBrainsMono-Light.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
 
 :root {
     white-space: nowrap;

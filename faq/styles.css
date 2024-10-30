@@ -3,28 +3,44 @@
     src: url('../misc/fonts/JetBrainsMono-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
-  }
+}
   
-  @font-face {
+@font-face {
     font-family: 'JetBrains Mono';
     src: url('../misc/fonts/JetBrainsMono-Bold.woff2') format('woff2');
     font-weight: bold;
     font-style: normal;
-  }
+}
 
-  :root {
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('../misc/fonts/JetBrainsMono-ExtraBold.woff2') format('woff2');
+    font-weight: bolder;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('../misc/fonts/JetBrainsMono-Light.woff2') format('woff2');
+    font-weight: lighter;
+    font-style: normal;
+}
+
+:root {
     white-space: wrap;
-    background-size: 400% 400vh;
+    background-size: 100% 400vh;
     font-family: 'JetBrains Mono', monospace;
     font-size: 24px;
-    color: #7ebcff;
-    animation: 2.5s fade forwards, 4s bgfade forwards, motion 10s forwards infinite alternate;
+    font-style: normal;
+    font-weight: lighter;
+    color: #ffffff;
+    animation: 2.5s fade forwards, 4s bgfade forwards, motion 10s forwards infinite;
     animation-timing-function: linear;
 }
 
 
 .hyperlink {
-    color:#3f46d2
+    color:#00bcd4;
 }
 .hyperlink:visited {
     color:#a659d2
@@ -64,11 +80,23 @@
 
 .questions {
     margin: 0 auto;
-    margin-top: 2.5%;
+    margin-top: 1%;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: fit-content;
+    padding: 12.5px 25px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-weight: lighter;
+}
+
+.discord-plug {
+    margin: 0 auto;
+    margin-top: 1%;
     font-size: 18px;
     background-color: rgba(0, 0, 0, 0.5);
     width: fit-content;
-    padding: 25px 25px;
+    padding: 12.5px 25px;
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -87,7 +115,7 @@
         background-position-y: 0%;
     }
     100% {
-        background-position-y: 100%;
+        background-position-y: 95%;
     }
   }
 
@@ -108,6 +136,6 @@
         background-color: #31489a;
     }
     100% {
-        background-image: linear-gradient(to bottom, #3a3570, #49265d, #1d1135, #152661, #3a3570);
+        background-image: linear-gradient(to bottom, #4b3a85, #3a2668, #281542, #1a1a5b, #4b3a85, #3a2668);
     }
 }
