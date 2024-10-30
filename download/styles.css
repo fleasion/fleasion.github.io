@@ -15,14 +15,14 @@
 @font-face {
     font-family: 'JetBrains Mono';
     src: url('../misc/fonts/JetBrainsMono-ExtraBold.woff2') format('woff2');
-    font-weight: bold;
+    font-weight: bolder;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'JetBrains Mono';
     src: url('../misc/fonts/JetBrainsMono-Light.woff2') format('woff2');
-    font-weight: bold;
+    font-weight: lighter;
     font-style: normal;
 }
 
@@ -30,6 +30,9 @@
     white-space: nowrap;
     background-size: 400% 400vh;
     font-family: 'JetBrains Mono', monospace;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: normal;
     margin: 0;
     font-size: 24px;
     padding: 20px;
@@ -86,6 +89,7 @@
 }
 
 .download-text {
+    font-weight: normal;
     margin: 0 auto;
     margin-top: 2.5%;
     font-size: 24px;
