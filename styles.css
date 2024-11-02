@@ -28,13 +28,14 @@
 
 :root {
     white-space: wrap;
-    background-size: 100% 400vh;
+    background-size: 150% 400%;
+    background-repeat: no-repeat;
     font-family: 'JetBrains Mono', monospace;
     font-size: 24px;
     font-style: normal;
     font-weight: lighter;
     color: #ffffff;
-    animation: 2.5s fade forwards, 4s bgfade forwards, motion 10s forwards infinite;
+    animation: 2.5s fade forwards, 4s bgfade forwards, motion 10s infinite alternate;
     animation-timing-function: linear;
 }
 
@@ -164,11 +165,11 @@
 }
 
 .bottomtext {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0%;
-    font-size:12px; 
+    position: relative;
+    margin: 0 auto;
+    margin-top: 10%;
+    bottom: 0%; 
+    font-size:12px;
     text-align: center;
     white-space: nowrap;
     background-color: rgba(255, 255, 255, 0.1);
@@ -194,7 +195,7 @@
     100% {
         background-position-y: 100%;
     }
-  }
+}
 
 @keyframes fade {
     0% {

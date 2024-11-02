@@ -27,17 +27,15 @@
 }
 
 :root {
-    white-space: nowrap;
-    background-size: 400% 400vh;
+    white-space: wrap;
+    background-size: 150% 400%;
+    background-repeat: no-repeat;
     font-family: 'JetBrains Mono', monospace;
     font-size: 24px;
     font-style: normal;
-    font-weight: normal;
-    margin: 0;
-    font-size: 24px;
-    padding: 20px;
+    font-weight: lighter;
     color: #ffffff;
-    animation: 2.5s fade forwards, 4s bgfade forwards, motion 10s infinite;
+    animation: 2.5s fade forwards, 4s bgfade forwards, motion 10s infinite alternate;
     animation-timing-function: linear;
 }
 
@@ -60,7 +58,7 @@
 
 .back {
     position: fixed;
-    margin-top: 15%;
+    margin-top: 1%;
     margin-left: 1%;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.1);
@@ -73,12 +71,12 @@
 
 .title {
     margin: 0 auto;
-    margin-top: 2.5%;
+    margin-top: 1%;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.1);
     width: fit-content;
-    height: fit-content;
-    padding: 15px 35px;
+    height: auto;
+    padding: 15px 25px;
     border-radius: 20px;
 }
 
