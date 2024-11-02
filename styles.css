@@ -21,19 +21,20 @@
 
 @font-face {
     font-family: 'JetBrains Mono';
-    src: url('misc/fonts/JetBrainsMono-Light.woff2') format('woff2');
+    src: url('misc/fonts/JetBrainsMono-Light.woff2') format('woff2'); 
     font-weight: lighter;
     font-style: normal;
 }
 
 :root {
     white-space: wrap;
-    background-size: 150% 400%;
+    background-size: 100% 400%;
     background-repeat: no-repeat;
     font-family: 'JetBrains Mono', monospace;
     font-size: 24px;
     font-style: normal;
     font-weight: lighter;
+    font-display: block;
     color: #ffffff;
     animation: 2.5s fade forwards, 4s bgfade forwards, motion 10s infinite alternate;
     animation-timing-function: linear;
@@ -56,27 +57,24 @@
 }
 
 .github {
-    position: fixed;
-    left: 0%;
-    top: 45%;
-    transform: translateY(-50%);
     margin: 2.5%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 25px 25px;
     border-radius: 250px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .discord {
-    position: fixed;
-    right: 0%;
-    top: 45%;
-    transform: translateY(-50%);
     margin: 2.5%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 25px 25px;
     border-radius: 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.github,
+.discord {
+    transform: scale(0.8);
 }
 
 .github,
@@ -88,12 +86,12 @@
 
 .github:hover,
 .discord:hover {
-    transform: translateY(-50%) scale(1.25);
+    transform: scale(1);
 }
 
 .download:hover,
 .faq:hover {
-    transform: scale(1.1);
+    transform: scale(1.25);
 }
 
 .tutorial { 
@@ -145,20 +143,26 @@
     margin-top: 1%;
     display: flex;
     justify-content: space-between;
-    width: 450px;
+    width: 1000px;
 }
 
 .faq {
+    margin-top: 4%;
+    text-align: center;
     background-color: rgba(255, 255, 255, 0.1);
     width: fit-content;
+    height: fit-content;
     padding: 15px 25px;
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .download {
+    margin-top: 4%;
+    text-align: center;
     background-color: rgba(255, 255, 255, 0.1);
     width: fit-content;
+    height: fit-content;
     padding: 15px 25px;
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -178,14 +182,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: fit-content;
     height: auto;
-}
-
-.bottom-container {
-    display: flex;
-    justify-content: space-between;
-    
-    position: relative;
-    padding-bottom: 15%;
 }
 
 @keyframes motion {

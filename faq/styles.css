@@ -28,21 +28,22 @@
 
 :root {
     white-space: wrap;
-    background-size: 150% 400%;
+    background-size: 100% 400%;
     background-repeat: no-repeat;
     font-family: 'JetBrains Mono', monospace;
     font-size: 24px;
     font-style: normal;
     font-weight: lighter;
+    font-display: block;
     color: #ffffff;
     animation: 2.5s fade forwards, 4s bgfade forwards, motion 10s infinite alternate;
     animation-timing-function: linear;
-}
+} 
 
 code {
     background: rgba(0,0,0,0.25);
     border-radius: 5px;
-    padding: 2.5px
+    padding: 2.5px;
 }
 
 
