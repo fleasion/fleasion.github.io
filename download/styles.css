@@ -36,20 +36,20 @@
     margin: 0;
     font-size: 24px;
     padding: 20px;
-    color: #7ebcff;
-    animation: 2.5s fade forwards, 4s bgfade forwards, motion 10s forwards infinite alternate;
+    color: #ffffff;
+    animation: 2.5s fade forwards, 4s bgfade forwards, motion 10s infinite;
     animation-timing-function: linear;
 }
 
 
 .hyperlink {
-    color:#658eff
+    color:#7fa1ff
 }
 .hyperlink:visited {
-    color:#3a55a2
+    color:#da84ff
 }
 .hyperlink:active {
-    color:#ffffff
+    color:#ffffff   
 }
 .underscore {
     text-decoration: underline;
@@ -58,34 +58,44 @@
     text-decoration: none;
 }
 
-.container {
-    display: flex;
-    justify-content: space-between;
+.back {
+    position: fixed;
+    margin-top: 15%;
+    margin-left: 1%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    width: fit-content;
+    height: auto;
+    padding: 15px 35px;
+    border-radius: 20px;
+    font-size: 36px;
 }
 
-.back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 2.5%;
-}
 .title {
     margin: 0 auto;
     margin-top: 2.5%;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
     width: fit-content;
-    height: auto;
+    height: fit-content;
     padding: 15px 35px;
     border-radius: 20px;
 }
 
 .bottomtext {
-    position: fixed;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
+    position: relative;
+    margin: 0 auto;
+    margin-top: 5%;
+    bottom: 0%; 
     font-size:12px;
+    text-align: center;
+    white-space: nowrap;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 12.5px 25px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: fit-content;
+    height: auto;
 }
 
 .download-text {
@@ -93,11 +103,30 @@
     margin: 0 auto;
     margin-top: 2.5%;
     font-size: 24px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
     width: fit-content;
     padding: 25px 25px;
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.discord {
+    margin: 0 auto;
+    text-align: center;
+    margin: 1.5%;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 25px 25px;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.discord {
+  transition: transform 0.6s ease;
+}
+
+.discord:hover {
+    transform: scale(1.25);
 }
 
 @keyframes motion {
@@ -120,12 +149,12 @@
 
 @keyframes bgfade {
     0% {
-        background-color: #000000
+        background-color: #000000;
     }
     99% {
-        background-color: #352665;
+        background-color: #0a1c2d;
     }
     100% {
-        background-image: linear-gradient(to bottom, #220e3d, #11115a, #352665, #241449, #220e3d, #11115a);
+        background-image: linear-gradient(to bottom, #0a1c2d, #153b5c, #0a1c2d);
     }
 }

@@ -38,12 +38,19 @@
     animation-timing-function: linear;
 }
 
+code {
+    background: rgba(0,0,0,0.25);
+    border-radius: 5px;
+    padding: 2.5px
+}
+
+
 
 .hyperlink {
-    color:#658eff
+    color:#7fa1ff
 }
 .hyperlink:visited {
-    color:#3a55a2
+    color:#da84ff
 }
 .hyperlink:active {
     color:#ffffff
@@ -61,17 +68,23 @@
 }
 
 .back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 2.5%;
+    position: fixed;
+    margin-top: 1%;
+    margin-left: 1%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    width: fit-content;
+    height: auto;
+    padding: 15px 35px;
+    border-radius: 20px;
+    font-size: 36px;
 }
 
 .title {
     margin: 0 auto;
-    margin-top: 2.5%;
+    margin-top: 1%;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
     width: fit-content;
     height: auto;
     padding: 15px 25px;
@@ -82,7 +95,7 @@
     margin: 0 auto;
     margin-top: 1%;
     font-size: 16px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
     width: fit-content;
     padding: 12.5px 25px;
     border-radius: 25px;
@@ -90,24 +103,78 @@
     font-weight: lighter;
 }
 
-.discord-plug {
+.drawer {
+    width: auto;
     margin: 0 auto;
-    margin-top: 1%;
+}
+
+.drawer-toggle {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.drawer-toggle.open {
+    transform: rotate(90deg);
+}
+
+.drawer-content {
+    display: none;
+}
+
+.yellow {
+    color: yellow
+}
+
+.green {
+    color: lime
+}
+
+.red {
+    color: red
+}
+
+.discord {
+    position: relative;
+    margin-top: 1.5%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 75%;
     font-size: 18px;
-    background-color: rgba(0, 0, 0, 0.5);
-    width: fit-content;
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 12.5px 25px;
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.6s ease;
+    width: fit-content;
+    height: auto;
+}
+
+.discord:hover {
+    transform: translateX(-50%) scale(1.25);
 }
 
 .bottomtext {
-    position: fixed;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
+    position: relative;
+    margin: 0 auto;
+    margin-top: 5%;
+    bottom: 0%; 
     font-size:12px;
-    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 12.5px 25px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: fit-content;
+    height: auto;
+}
+
+.bottom-container {
+    display: flex;
+    justify-content: space-between;
+    
+    position: relative;
+    padding-bottom: 10%;
 }
 
 @keyframes motion {
@@ -115,27 +182,20 @@
         background-position-y: 0%;
     }
     100% {
-        background-position-y: 95%;
+        background-position-y: 100%;
     }
   }
-
-@keyframes fade {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 100%;
-    }
-}
-
+  
 @keyframes bgfade {
     0% {
-        background-color: #000000
+        opacity: 0;
+        background-color: #000000;
     }
     99% {
-        background-color: #352665;
+        background-color: #0a1b3d;
+        opacity: 100%;
     }
     100% {
-        background-image: linear-gradient(to bottom, #352665, #241449, #220e3d, #11115a, #352665, #241449);
+        background-image: linear-gradient(to bottom, #0a1b3d, #1e3a73, #0a1b3d);
     }
 }

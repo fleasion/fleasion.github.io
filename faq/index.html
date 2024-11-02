@@ -10,8 +10,10 @@
 
     <link rel="stylesheet" href="misc/lite-youtube-embed/lite-yt-embed.css" />
     <script src="misc/lite-youtube-embed/lite-yt-embed.js"></script>
+    <script src="drawer.js"></script>
 
-    <meta name="description" content="A new take on Roblox' customization. ">
+    <meta property="og:description" content="Fleasion.\n A new take on Roblox customization.\n\nCurrently in development\nWorks with Phantom Forces only, but will support your game if you request.">
+    <meta property="description" content="Fleasion. A new take on Roblox customization. Currently in development. Works with Phantom Forces only, but will support your game if you request.">
     <meta name="keywords" content="Fleasion, SpecialK, fleasion, specialk, Roblox, roblox, bloxstrap, no textures, customization, custom skin, custom gun, 2024">
     <meta name="author" content="the Fleasion team">
 </head>
@@ -19,78 +21,179 @@
 
 
 <!DOCTYPE html>
-<h1> 
-    <div class="container">
-        <div class="back underscore hyperlink">
-            <a href="https://fleasion.github.io/">< Go back</a>
-        </div>
-    
-        <div align="center" class="title"> 
+<div>
+    <div align=center class="container">
+        <a align="left" class="back hyperlink nodeco" href="https://fleasion.github.io/">
+            < Main page
+        </a>
+        <h1 align="center" class="title"> 
             Frequently asked questions:<br>
-        </div>
+        </h1>
     </div>
     
 
 
     <div align="left" class="questions">
-        <b>I ran the run.bat file and it instantly closes, what do i do?</b>
-        <br>
-        > <a href="https://github.com/CroppingFlea479/Fleasion/#if-runbat-fails" class="underscore hyperlink"> Read this guide on manually setting up Fleasion. </a>
-        <br><br>
-        <b>Does Fleasion work with Bloxstrap?</b>
-        <br>
-        > Yes. The feature "default skyboxes" even helps Bloxstrap with custom skyboxes.
-        <br>
-        > If using said feature responds with Bloxstrap not being present,
-        <br>
-        > you either have it in a custom directory or don't have it at all.
-        <br><br>
-        <b>Is it possible to make texture packs?</b>
-        <br>
-        > Not as simple as it sounds. You will get artifacts and things will not render at range.
-        <br><br>
-        <b>Why are my sleeves sometimes red and sometimes blue?</b>
-        <br>
-        > Phantom Forces applies a tint depending on which team you're playing as.
-        <br>
-        > This is something you have to deal with.
-        <br><br>
-        <b>Can we add <i>something that doesn't exist in the game yet?</i></b>
-        <br>
-        > No. Fleasion can only replace or remove, not create.
-        <br><br>
-        <b>Can we have a hash for `____`?</b>
-        <br>
-        > Yes. Just ask someone from the Fleasion Team or make a Question post in the forum channel in <a href="https://discord.gg/spezi" class="underscore hyperlink">Spezi's Discord server</a>.
-        <br>
-        > Important, there will be situations where that isn't remotely possible.
-        <br><br>
-        <b>Can we get this sound/texture/etc.?</b>
-        <br>
-        > Yes. Make a post in this forum channel with Sound Request, Texture Request or Other tags.
-        <br><br>
-        <b>Can we manually edit presets?</b>
-        <br>
-        > Yes. The presets.json file already comes with 1 preset, so just comply with json formatting and you're good.
-        <br><br><br>
-    </div>
-    <p align="center" class="discord-plug">
-        If you encounter issues, want to throw in a
-        <br>
-        suggestion or if you have a question,
-        <br>
-        <a href="https://discord.gg/spezi" class="underscore hyperlink">join Spezi's Discord server</a>! We will help you there.
-    </p>
+        <div class="drawer" datadrawer="1">
+            <span class="drawer-toggle" datadrawer-toggle="1" onclick="toggleDrawer()">&#9654;</span>
+            <b>Hiding my arms seems like an advantage. Is this cheating?</b>
+            <div class="drawer-content"> 
+                <a class=green>No.</a> Fleasion <a class=green>isn't a cheat</a> and every built-in 
+                <br>
+                customization option <a class=green>is allowed</a> by StyLiS developers.
+            </div>
+        </div>
         
+        <div class="drawer" datadrawer="2">
+            <br>
+            <span class="drawer-toggle" datadrawer-toggle="2" onclick="toggleDrawer()">&#9654;</span>
+            <b>Is Fleasion a virus?</b>
+            <div class="drawer-content"> 
+                <a class=green>No. </a>Fleasion is a <a class=green>completely safe</a>, 
+                <br>
+                <i>one of a kind</i> program for Roblox customization.
+                <br>
+                It <a class=green>isn't</a> bundled with <a class=red>adware</a> or <a class=red>malware</a>.
+            </div>
+        </div>
 
+        <div class="drawer" datadrawer="3">
+            <br>
+            <span class="drawer-toggle" datadrawer-toggle="3" onclick="toggleDrawer()">&#9654;</span>
+            <b>I ran the run.bat file and it instantly closes, what do i do?</b>
+            <div class="drawer-content"> 
+                <a href="https://github.com/CroppingFlea479/Fleasion/#if-runbat-fails" class="hyperlink"> Read this guide on manually setting up Fleasion. </a>
+            </div>
+        </div>
+
+        <div class="drawer" datadrawer="4">
+            <br>
+            <span class="drawer-toggle" datadrawer-toggle="4" onclick="toggleDrawer()">&#9654;</span>
+            <b>I don't see the <code>run.bat</code> file.. Where is it in the archive?</b>
+            <div class="drawer-content"> 
+                The <code>run.bat</code> file is a batch script, which has a command prompt icon.
+                <br>
+                You might have file extensions hidden, so you might not see the <code>.bat</code>.
+            </div>  
+        </div>   
+        <div class="drawer" datadrawer="5">
+            <br>
+            <span class="drawer-toggle" datadrawer-toggle="5" onclick="toggleDrawer()">&#9654;</span>
+            <b>Does Fleasion work with <a href="https://bloxstraplabs.com/" class="hyperlink nodeco">Bloxstrap?</a></b>
+            <div class="drawer-content"> 
+                <a class=green>Yes.</a> The "default skyboxes" feature <a class=green>even helps</a> Bloxstrap with custom skyboxes.
+                <br>
+                <a class=yellow>If using said feature responds with Bloxstrap not being present,
+                <br>
+                you either have it in a custom directory or don't have it at all.</a>
+            </div>  
+        </div>
+        <div class="drawer" datadrawer="6">
+            <br>
+            <span class="drawer-toggle" datadrawer-toggle="6" onclick="toggleDrawer()">&#9654;</span>
+            <b>It said that it didn't find the hash.  What do I do?</b>
+            <div class="drawer-content"> 
+                <a class=yellow>Some actions will require you to do the following to load necessary cache:</a>
+                <br>
+                - Sights will require you to equip the sight on any gun for it to load
+                <br>
+                - In-game sounds will require you to trigger the sound (like, shoot the gun)
+                <br>
+                - Skins will require you to equip the skin or load the skin's preview in the shop
+                <br>
+                - Default skyboxes require you to play on maps to load the skyboxes first.
+                <br>
+                - Removing textures will require you to play on maps to load the textures first.
+                <br>
+                <a class=yellow>You might also just need to rejoin <a href="https://www.roblox.com/games/18504289170/Texture-Game" class="hyperlink nodeco">the Texture Game</a></a><a class=yellow> to reload the assets.</a>
+            </div>  
+        </div>
+        <div class="drawer" datadrawer="7">
+            <br>
+            <span class="drawer-toggle" datadrawer-toggle="7" onclick="toggleDrawer()">&#9654;</span>
+            <b>Is it possible to make texture packs?</b>
+            <div class="drawer-content"> 
+                <a class=yellow>Yes, with a few caveates.</a>
+                <br>
+                <a class=red>You will get artifacts and things will not render at range.</a>
+            </div>  
+        </div>   
+        <div class="drawer" datadrawer="8">
+            <br>
+            <span class="drawer-toggle" datadrawer-toggle="8" onclick="toggleDrawer()">&#9654;</span>
+            <b>Why are my sleeves sometimes red and sometimes blue?</b>
+            <div class="drawer-content"> 
+                <a href="https://www.roblox.com/games/292439477/Phantom-Forces" class="hyperlink nodeco">Phantom Forces</a> applies a tint depending on which team you're playing as.
+                <br>
+                <a class=red>This isn't possible to remove.</a>
+            </div>  
+        </div>   
+        <div class="drawer" datadrawer="9">
+            <br>
+            <span class="drawer-toggle" datadrawer-toggle="9" onclick="toggleDrawer()">&#9654;</span>
+            <b>Can we add <i>something that doesn't exist in the game yet?</i></b>
+            <div class="drawer-content"> 
+                <a class=red>No.</a> Fleasion can only <a class=green>replace</a> or <a class=green>remove</a>, <a class=red>not create</a>.
+            </div>  
+        </div>   
+        <div class="drawer" datadrawer="10">
+            <br>
+            <span class="drawer-toggle" datadrawer-toggle="10" onclick="toggleDrawer()">&#9654;</span>
+            <b>Can we have a hash for '...'?</b>
+            <div class="drawer-content"> 
+                <a class=green>Yes.</a> Just ask <a href="https://github.com/CroppingFlea479/Fleasion/?tab=readme-ov-file#fleasion-team" class="hyperlink nodeco">someone from the Fleasion Team</a> or 
+                <br>
+                make a Question post in the forum channel in <a href="https://discord.gg/spezi" class="hyperlink nodeco">Spezi's Discord server</a>.
+                <br>
+                <a class="red">Important, there will be situations where that isn't remotely possible.</a>
+            </div>  
+        </div>   
+        <div class="drawer" datadrawer="11">
+            <br>
+            <span class="drawer-toggle" datadrawer-toggle="11" onclick="toggleDrawer()">&#9654;</span>
+            <b>Can we get this sound/texture/etc.?</b>
+            <div class="drawer-content"> 
+                <a class=green>Yes.</a> Just ask someone from the Fleasion Team or 
+                <br>
+                make a Question post in the forum channel in <a href="https://discord.gg/spezi" class="underscore hyperlink">Spezi's Discord server</a>.
+                <br>
+            </div>  
+        </div>   
+        <div class="drawer" datadrawer="11">
+            <br>
+            <span class="drawer-toggle" datadrawer-toggle="11" onclick="toggleDrawer()">&#9654;</span>
+            <b>Can we manually edit presets?</b>
+            <div class="drawer-content"> 
+                <a class=green>Yes.</a> The <code>presets.json</code> file already comes with 1 preset,
+                <br>
+                comply with JSON formatting while editing the file.
+            </div>  
+        </div>   
+        <br><br>
+        <div align=center>
+            <a href="https://discord.gg/spezi" class="hyperlink nodeco">Join Spezi's Discord server</a> to hear about Fleasion updates,
+            <br>
+            and to get help with any issues you might have!
+        </div>
+
+    </div>
+    
+    <div align="center" class="discord">
+        <a href="https://discord.com/invite/spezi">    
+            <img src="../misc/logos/discord.png" width="155px" height="122.5px">
+        </a>
+    </div>
+            
+        
     <p class="bottomtext" align="center">
         1.9.1 | Software developed by @8ar, @cro.p, @yolobrokers, @decooooo, @3tcy | Help from @jan_darkk, @tm2k | Tutorial by Fantix | FleasionQT currently in development by @rosegoldisntgay
         <br>
         This project is not affiliated with, endorsed by, or associated with Roblox Corporation. Roblox and all related logos, brands, and assets are trademarks or registered trademarks of Roblox Corporation.
         <br>
-        <a class="underscore"> All included features of Fleasion are built for usage in the FPS game "Phantom Forces" by StyLiS Studios and approved by game moderation, other games aren't but will be supported if you request.</a>
-        </p>
-</h1>
+        <a class="underscore"> All included features of Fleasion are built for usage in the FPS game "Phantom Forces" by StyLiS Studios and approved by game moderation, other games aren't but will be supported if you request.</a>      
+    </p>
+
+</div>
 <html>
 
 </html>

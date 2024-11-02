@@ -27,22 +27,22 @@
 }
 
 :root {
+    white-space: wrap;
+    background-size: 100% 400vh;
     font-family: 'JetBrains Mono', monospace;
     font-size: 24px;
     font-style: normal;
-    font-weight: bold;
-    color: #7ebcff;
-    white-space: wrap;
-    background-size: 400% 400vh;
-    animation: 2.5s fade forwards, 4s bgfade forwards, motion 10s forwards infinite alternate;
+    font-weight: lighter;
+    color: #ffffff;
+    animation: 2.5s fade forwards, 4s bgfade forwards, motion 10s forwards infinite;
     animation-timing-function: linear;
 }
 
 .hyperlink {
-    color:#658eff
+    color:#7fa1ff
 }
 .hyperlink:visited {
-    color:#3a55a2
+    color:#da84ff
 }
 .hyperlink:active {
     color:#ffffff
@@ -100,16 +100,16 @@
     justify-content: center;
     margin: 0 auto;
     margin-top: 1.5%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
 }
 
 .underscore {
     text-decoration: underline
 }
-
 .italic {
     font-style: italic
 }
-
 .hyperlink {
     color:#3f46d2
 }
@@ -124,7 +124,7 @@
     margin: 0 auto;
     margin-top: 2.5%;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
     width: fit-content;
     height: auto;
     padding: 15px 25px;
@@ -138,6 +138,8 @@
 }
 
 .buttons {
+    font-size: 48px;
+    font-weight: bold;
     margin: 0 auto;
     margin-top: 1%;
     display: flex;
@@ -146,7 +148,7 @@
 }
 
 .faq {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
     width: fit-content;
     padding: 15px 25px;
     border-radius: 25px;
@@ -154,7 +156,7 @@
 }
 
 .download {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
     width: fit-content;
     padding: 15px 25px;
     border-radius: 25px;
@@ -162,23 +164,27 @@
 }
 
 .bottomtext {
-    position: fixed;
+    position: absolute;
     left: 50%;
-    bottom: 0;
     transform: translateX(-50%);
-    font-size:12px;
-    width: 100%;
-}
-
-.download-text {
-    margin: 0 auto;
-    margin-top: 2.5%;
-    font-size: 24px;
-    background-color: rgba(0, 0, 0, 0.5);
-    width: fit-content;
-    padding: 25px 25px;
+    bottom: 0%;
+    font-size:12px; 
+    text-align: center;
+    white-space: nowrap;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 12.5px 25px;
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: fit-content;
+    height: auto;
+}
+
+.bottom-container {
+    display: flex;
+    justify-content: space-between;
+    
+    position: relative;
+    padding-bottom: 15%;
 }
 
 @keyframes motion {
@@ -201,12 +207,12 @@
 
 @keyframes bgfade {
     0% {
-        background-color: #000000
+        background-color: #000000;
     }
     99% {
-        background-color: #31489a;
+        background-color: #0a1a35;
     }
     100% {
-        background-image: linear-gradient(to bottom, #11115a, #352665, #241449, #220e3d, #11115a, #352665);
+        background-image: linear-gradient(to bottom, #0a1a35, #1b3564, #0a1a35);
     }
 }
