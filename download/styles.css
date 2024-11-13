@@ -40,6 +40,10 @@
     animation-timing-function: linear;
 }
 
+.seo {
+    position: fixed;
+    margin-top: 10000%;
+}
 
 .hyperlink {
     color:#7fa1ff

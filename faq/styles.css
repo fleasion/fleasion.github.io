@@ -38,11 +38,16 @@
     color: #ffffff;
     animation: 2.5s fade forwards, 4s bgfade forwards, motion 10s infinite alternate;
     animation-timing-function: linear;
-} 
+}
 
 code {
     background: rgba(0,0,0,0.25);
     border-radius: 5px;
+}
+
+.seo {
+    position: fixed;
+    margin-top: 10000%;
 }
 
 .hyperlink {
@@ -132,6 +137,7 @@ code {
     color: red
 }
 
+
 .discord {
     position: relative;
     margin-top: 1.5%;
@@ -140,8 +146,8 @@ code {
     top: 75%;
     font-size: 18px;
     background-color: rgba(255, 255, 255, 0.1);
-    padding: 12.5px 25px;
-    border-radius: 25px;
+    padding: 20px 20px;
+    border-radius: 250px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.6s ease;
     width: fit-content;
