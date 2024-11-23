@@ -40,11 +40,6 @@
     animation-timing-function: linear;
 }
 
-.stretchviewport {
-    position: fixed;
-    margin-top: 10000%
-}
-
 .hyperlink {
     color:#7fa1ff
 }

@@ -28,7 +28,7 @@
 
 :root {
     white-space: wrap;
-    background-size: 100% 400%;
+    background-size: 100% 800%;
     background-repeat: no-repeat;
     font-family: 'JetBrains Mono', monospace;
     font-size: 24px;
@@ -43,11 +43,6 @@
 code {
     background: rgba(0,0,0,0.25);
     border-radius: 5px;
-}
-
-.stretchviewport {
-    position: fixed;
-    margin-top: 10000%
 }
 
 .hyperlink {
@@ -98,7 +93,7 @@ code {
 .questions {
     margin: 0 auto;
     margin-top: 1%;
-    font-size: 14px;
+    font-size: 18px;
     background-color: rgba(255, 255, 255, 0.1);
     width: 45%;
     padding: 12.5px 25px;
