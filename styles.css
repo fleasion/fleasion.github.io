@@ -27,6 +27,7 @@
 }
 
 :root {
+    background-image: linear-gradient(to bottom, #0a1a35, #1b3564, #0a1a35);
     white-space: wrap;
     background-size: 100% 400%;
     background-repeat: no-repeat;
@@ -36,7 +37,7 @@
     font-weight: lighter;
     font-display: block;
     color: #ffffff;
-    animation: 2.5s fade forwards, 4s bgfade forwards, motion 10s infinite alternate;
+    animation: 2s elegant ease-in, 2s blur ease-in-out, 4s bgfade forwards, motion 10s infinite alternate;
     animation-timing-function: linear;
 }
 
@@ -198,23 +199,29 @@
     }
 }
 
-@keyframes fade {
+@keyframes bgfade {
     0% {
-        opacity: 0;
+        filter: brightness(0.25)
     }
     100% {
-        opacity: 100%;
+        filter: brightness(1)
     }
 }
 
-@keyframes bgfade {
+@keyframes elegant {
     0% {
-        background-color: #000000;
-    }
-    99% {
-        background-color: #0a1a35;
+      transform: scale(0.9);
     }
     100% {
-        background-image: linear-gradient(to bottom, #0a1a35, #1b3564, #0a1a35);
+      transform: scale(1);
+    }
+  }
+
+@keyframes blur {
+    0% {
+        filter: blur(10px)
+    }
+    100% {
+        filter: blur(0);
     }
 }
