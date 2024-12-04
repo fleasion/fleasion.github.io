@@ -27,6 +27,7 @@
 }
 
 :root {
+    background: #000000;
     background-image: linear-gradient(to bottom, #0a1a35, #1b3564, #0a1a35);
     white-space: wrap;
     background-size: 100% 400%;
@@ -37,7 +38,7 @@
     font-weight: lighter;
     font-display: block;
     color: #ffffff;
-    animation: 2s elegant ease-in, 2s blur ease-in-out, 4s bgfade forwards, motion 10s infinite alternate;
+    animation: 1.5s start ease-in-out, motion 10s infinite alternate;
     animation-timing-function: linear;
 }
 
@@ -199,29 +200,13 @@
     }
 }
 
-@keyframes bgfade {
+@keyframes start {
     0% {
-        filter: brightness(0.25)
+        filter: brightness(0.25);
+        filter: blur(25px)
     }
     100% {
-        filter: brightness(1)
-    }
-}
-
-@keyframes elegant {
-    0% {
-        transform: scale(0.9);
-    }
-    100% {
-        transform: scale(1)
-    }
-  }
-
-@keyframes blur {
-    0% {
-        filter: blur(10px)
-    }
-    100% {
+        filter: brightness(1);
         filter: blur(0);
     }
 }

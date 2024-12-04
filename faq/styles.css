@@ -27,8 +27,10 @@
 }
 
 :root {
+    background: #000000;
+    background-image: linear-gradient(to bottom, #0a1a35, #1b3564, #0a1a35);
     white-space: wrap;
-    background-size: 100% 800%;
+    background-size: 100% 400%;
     background-repeat: no-repeat;
     font-family: 'JetBrains Mono', monospace;
     font-size: 24px;
@@ -36,7 +38,7 @@
     font-weight: lighter;
     font-display: block;
     color: #ffffff;
-    animation: 2.5s fade forwards, 4s bgfade forwards, motion 10s infinite alternate;
+    animation: 1.5s start ease-in-out, motion 10s infinite alternate;
     animation-timing-function: linear;
 }
 
@@ -176,18 +178,15 @@ code {
     100% {
         background-position-y: 100%;
     }
-  }
+}
 
-@keyframes bgfade {
+@keyframes start {
     0% {
-        opacity: 0;
-        background-color: #000000;
-    }
-    99% {
-        background-color: #0a1b3d;
-        opacity: 100%;
+        filter: brightness(0.25);
+        filter: blur(25px)
     }
     100% {
-        background-image: linear-gradient(to bottom, #0a1b3d, #1e3a73, #0a1b3d);
+        filter: brightness(1);
+        filter: blur(0);
     }
 }
