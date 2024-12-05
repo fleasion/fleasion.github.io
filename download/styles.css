@@ -143,13 +143,16 @@
     }
   }
 
-  @keyframes start {
+@keyframes start {
     0% {
         filter: brightness(0.25);
-        filter: blur(25px)
+        filter: blur(15px)
+    }
+    75% {
+        filter: brightness(0.75);
+        filter: blur(0)
     }
     100% {
         filter: brightness(1);
-        filter: blur(0);
     }
 }
