@@ -88,7 +88,7 @@
 .discord,
 .download,
 .faq {
-  transition: transform 0.6s ease;
+    transition: transform 0.6s ease;
 }
 
 .github:hover,

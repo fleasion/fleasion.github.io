@@ -4,8 +4,8 @@ window.onload = function() {
   if (!hasDownloaded) {
       const link = document.createElement("a");
 
-      link.href = "fleasion.zip";
-      link.download = "fleasion.zip"; 
+      link.href = "Fleasion.rar";
+      link.download = "Fleasion.rar"; 
 
       document.body.appendChild(link);
 
