@@ -38,7 +38,7 @@
     font-weight: lighter;
     font-display: block;
     color: #ffffff;
-    animation: 1.5s start ease-in-out, motion 10s infinite alternate;
+    animation: motion 10s infinite alternate;
     animation-timing-function: linear;
 }
 
@@ -142,17 +142,3 @@
         background-position-y: 100%;
     }
   }
-
-@keyframes start {
-    0% {
-        filter: brightness(0.25);
-        filter: blur(15px)
-    }
-    75% {
-        filter: brightness(0.75);
-        filter: blur(0)
-    }
-    100% {
-        filter: brightness(1);
-    }
-}
