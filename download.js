@@ -18,15 +18,13 @@ document.getElementById('downloadButton').addEventListener('click', function() {
 
   const popupContent = document.createElement('p');
   popupContent.innerHTML = `
-    1. <a href="https://www.7-zip.org/download.html/" class="hyperlink">Unzip the downloaded archive</a> with software like <a href="https://www.7-zip.org/download.html/" class="hyperlink">7-Zip</a>.
+    1. Unzip the downloaded archive with software like <a href="https://www.7-zip.org/download.html/" style="color: #a659d2" >7-Zip</a>.
     <br>
-    &nbsp;&nbsp;&nbsp;The archive didn't get downloaded? <a class="hyperlink" href="fleasion.zip">Download it manually</a>.
+    &nbsp;&nbsp;&nbsp;The archive didn't get downloaded? <a style="color: #a659d2" href="https://github.com/fleasion/Fleasion/archive/refs/tags/CLI.zip">Download it manually</a>.
     <br><br>
     2. Run <b><a class="underscore">run.bat</a></b>.
     <br>
     &nbsp;&nbsp;&nbsp;It should set up Python and it's dependencies for Fleasion.
-    <br><br>
-    3. Enjoy!
   `;
   popup.appendChild(popupContent);
 
