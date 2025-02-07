@@ -68,18 +68,6 @@ h1 {
     display: none;
 }
 
-.yellow {
-    color: yellow
-}
-
-.green {
-    color: lime
-}
-
-.red {
-    color: red
-}
-
 .github {
     margin: 2.5%;
     background-color: rgba(255, 255, 255, 0.1);
