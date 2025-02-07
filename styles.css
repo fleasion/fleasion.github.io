@@ -1,45 +1,20 @@
-@font-face {
-    font-family: 'JetBrains Mono';
-    src: url('misc/fonts/JetBrainsMono-Regular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-  
-@font-face {
-    font-family: 'JetBrains Mono';
-    src: url('misc/fonts/JetBrainsMono-Bold.woff2') format('woff2');
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'JetBrains Mono';
-    src: url('misc/fonts/JetBrainsMono-ExtraBold.woff2') format('woff2');
-    font-weight: bolder;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'JetBrains Mono';
-    src: url('misc/fonts/JetBrainsMono-Light.woff2') format('woff2'); 
-    font-weight: lighter;
-    font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
 :root {
     background: #000000;
-    background-image: linear-gradient(to bottom, #0a1a35, #1b3564, #0a1a35);
+    background-image: linear-gradient(45deg, #000000, #808080, #000000);
     white-space: wrap;
     background-size: 100% 400%;
     background-repeat: no-repeat;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     font-size: 24px;
     font-style: normal;
     font-weight: lighter;
-    font-display: block;
     color: #ffffff;
-    animation: motion 10s infinite alternate;
-    animation-timing-function: linear;
+    animation: motion 15s infinite ease-in-out;
+}
+h1 {
+    font-weight: normal
 }
 
 .seo {
@@ -63,6 +38,48 @@
     text-decoration: none;
 }
 
+.questions {
+    margin: 0 auto;
+    margin-top: 1%;
+    font-size: 18px;
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 45%;
+    padding: 12.5px 25px;
+    border-radius: 25px;
+    font-weight: normal;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.drawer {
+    width: auto;
+    margin: 0 auto;
+}
+
+.drawer-toggle {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.drawer-toggle.open {
+    transform: rotate(90deg);
+}
+
+.drawer-content {
+    display: none;
+}
+
+.yellow {
+    color: yellow
+}
+
+.green {
+    color: lime
+}
+
+.red {
+    color: red
+}
+
 .github {
     margin: 2.5%;
     background-color: rgba(255, 255, 255, 0.1);
@@ -84,6 +101,12 @@
     transform: scale(0.8);
 }
 
+
+.tutorial{
+    transform: scale(0.9)
+}
+
+.tutorial,
 .github,
 .discord,
 .download,
@@ -91,6 +114,8 @@
     transition: transform 0.6s ease;
 }
 
+
+.tutorial:hover,
 .github:hover,
 .discord:hover {
     transform: scale(1);
@@ -99,6 +124,14 @@
 .download:hover,
 .faq:hover {
     transform: scale(1.25);
+}
+
+.download {
+    background-image: linear-gradient(45deg, #3f46d2, #a659d2);
+    animation: motion 5s infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .tutorial { 
@@ -117,7 +150,7 @@
     font-style: italic
 }
 .hyperlink {
-    color:#3f46d2
+    color:#3f46d2 
 }
 .hyperlink:visited {
     color:#a659d2
@@ -130,6 +163,7 @@
     margin: 0 auto;
     margin-top: 2.5%;
     text-align: center;
+    font-weight: normal;
     background-color: rgba(255, 255, 255, 0.1);
     width: fit-content;
     height: auto;
@@ -141,16 +175,17 @@
     margin: 0 auto;
     margin-top: 1.5%;
     text-align: center;
+    font-weight: normal;
 }
 
 .buttons {
     font-size: 48px;
-    font-weight: bold;
+    font-weight: normal;
     margin: 0 auto;
-    margin-top: 1%;
+    margin-top: 2.5%;
     display: flex;
     justify-content: space-between;
-    width: 1000px;
+    width: 750px;
 }
 
 .faq {
@@ -193,9 +228,23 @@
 
 @keyframes motion {
     0% {
+        background-position-x: 0%;
         background-position-y: 0%;
     }
-    100% {
+    25% {
+        background-position-x: 50%;
+        background-position-y: 50%;
+    }
+    50% {
+        background-position-x: 100%;
         background-position-y: 100%;
+    }
+    75% {
+        background-position-x: 50%;
+        background-position-y: 50%;
+    }
+    100% {
+        background-position-x: 0;
+        background-position-y: 0;
     }
 }
