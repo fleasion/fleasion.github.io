@@ -129,6 +129,9 @@ h1 {
 .download {
     background-image: linear-gradient(45deg, #3f46d2, #a659d2);
     animation: motion 5s infinite;
+}
+
+.notextbg {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -185,13 +188,14 @@ h1 {
     margin-top: 2.5%;
     display: flex;
     justify-content: space-between;
-    width: 750px;
+    width: 850px;
 }
 
 .faq {
     margin-top: 4%;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
     width: fit-content;
     height: fit-content;
     padding: 15px 25px;
