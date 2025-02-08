@@ -1,17 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
+/*
+todo: fix colors in faq
+*/
+
 :root {
-    background: #000000;
-    background-image: linear-gradient(45deg, #000000, #808080, #000000);
+    --black: #000000;
+    --white: #808080;
+    background-image: radial-gradient(circle farthest-corner, #000000, #808080, #000000, #808080, #000000, #808080, #000000, #808080, #000000, #808080, #000000, #808080, #000000, #808080, #000000);
     white-space: wrap;
-    background-size: 100% 400%;
-    background-repeat: no-repeat;
+    background-size: 200% 1600%;
+    background-repeat: repeat;
     font-family: 'Source Code Pro', monospace;
     font-size: 24px;
     font-style: normal;
     font-weight: lighter;
     color: #ffffff;
-    animation: motion 15s infinite ease-in-out;
+    animation: motion 60s infinite ease-in-out;
 }
 h1 {
     font-weight: normal
@@ -23,7 +28,10 @@ h1 {
 }
 
 .hyperlink {
-    color:#7fa1ff
+    color:#98a9d8
+}
+.hyperlink:hover {
+    color:#bac6e5
 }
 .hyperlink:visited {
     color:#da84ff
@@ -50,6 +58,16 @@ h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.green {
+    color: lime;
+}
+.yellow {
+    color: yellow;
+}
+.red {
+    color: red;
+}
+
 .drawer {
     width: auto;
     margin: 0 auto;
@@ -74,6 +92,8 @@ h1 {
     padding: 25px 25px;
     border-radius: 250px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    filter: invert(100%) sepia(10%) saturate(200%) brightness(110%) drop-shadow(25px 25px 25px rgba(0,0,0,0.5));
+    transition: filter 0.2s ease;
 }
 
 .discord {
@@ -82,6 +102,7 @@ h1 {
     padding: 25px 25px;
     border-radius: 250px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.1) saturate(1.5) drop-shadow(25px 25px 25px rgba(0,0,0,0.5));
 }
 
 .github,
@@ -132,6 +153,7 @@ h1 {
     margin-top: 1.5%;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
+    filter: drop-shadow(25px 25px 25px rgba(0,0,0,0.5))
 }
 
 .underscore {
@@ -176,7 +198,7 @@ h1 {
     margin-top: 2.5%;
     display: flex;
     justify-content: space-between;
-    width: 850px;
+    width: 900px;
 }
 
 .faq {
@@ -189,6 +211,7 @@ h1 {
     padding: 15px 25px;
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    filter: drop-shadow(25px 25px 25px rgba(0,0,0,0.5))
 }
 
 .download {
@@ -200,6 +223,7 @@ h1 {
     padding: 15px 25px;
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    filter: contrast(200%) drop-shadow(25px 25px 25px rgba(0,0,0,0.5))
 }
 
 .bottomtext {
@@ -220,23 +244,15 @@ h1 {
 
 @keyframes motion {
     0% {
-        background-position-x: 0%;
+        background-position-x: 100%;
         background-position-y: 0%;
     }
-    25% {
-        background-position-x: 50%;
-        background-position-y: 50%;
-    }
     50% {
-        background-position-x: 100%;
-        background-position-y: 100%;
-    }
-    75% {
-        background-position-x: 50%;
-        background-position-y: 50%;
+        background-position-x: 0%;
+        background-position-y: 20%;
     }
     100% {
-        background-position-x: 0;
-        background-position-y: 0;
+        background-position-x: 100%;
+        background-position-y: 0%;
     }
 }
