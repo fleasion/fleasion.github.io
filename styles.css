@@ -15,6 +15,7 @@ todo: fix colors in faq
     font-size: 24px;
     font-style: normal;
     font-weight: lighter;
+    font-display: swap;
     color: #ffffff;
     animation: motion 60s infinite ease-in-out;
 }
