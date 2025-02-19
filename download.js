@@ -20,7 +20,7 @@ document.getElementById('downloadButton').addEventListener('click', function() {
   popupContent.innerHTML = `
     1. Unzip the downloaded archive with software like <a href="https://www.7-zip.org/download.html/" style="color: #a659d2" >7-Zip</a>.
     <br>
-    &nbsp;&nbsp;&nbsp;The archive didn't get downloaded? <a style="color: #a659d2" href="https://github.com/fleasion/Fleasion/archive/refs/tags/rewritefix.zip">Download it manually</a>.
+    &nbsp;&nbsp;&nbsp;The archive didn't get downloaded? <a style="color: #a659d2" href="https://github.com/fleasion/Fleasion/archive/refs/tags/rewrite-fix.zip">Download it manually</a>.
     <br><br>
     2. Run <b><a class="underscore">run.bat</a></b>.
     <br>
