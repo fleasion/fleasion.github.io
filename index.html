@@ -1,604 +1,370 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fleasion — Modern Multi‑Game Customization</title>
-  <meta name="title" content="Fleasion - Customize Roblox games." />
-  <meta name="description" content="Customize sounds, textures, skins, sleeves, and skyboxes across multiple Roblox games with a sleek animated UI. In development." />
-  <meta name="keywords" content="fleasion, roblox, customization, skyboxes, textures, sounds, skins, AR2, DaHood, FJTR, Phantom Forces, Rivals" />
-  <meta name="author" content="the Fleasion team" />
-  <meta property="og:title" content="Fleasion - Roblox Customization" />
-  <meta property="og:description" content="Customize Roblox games with sounds, textures, skins, skyboxes, and more. Supported: AR2, DaHood, FJTR, Phantom Forces, Rivals, Roblox." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://fleasion.github.io/" />
-  <meta property="og:image" content="https://avatars.githubusercontent.com/u/186699266?s=480&v=4" />
-  <link rel="icon" href="https://avatars.githubusercontent.com/u/186699266?s=48&v=4" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d0b">
+  <meta name="color-scheme" content="dark">
 
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>Fleasion — Roblox Asset Interceptor & Customization Toolkit</title>
+  <meta name="description" content="Fleasion is an actively maintained Windows, macOS, and Linux desktop app for Roblox asset replacement, cache scraping, live previews, FastFlags, conversions, and more.">
+  <meta name="keywords" content="Fleasion, Roblox, asset replacement, Roblox customization, cache scraper, FastFlags, Roblox proxy, Roblox assets, mesh viewer, animation viewer">
+  <meta name="author" content="Fleasion contributors">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <link rel="canonical" href="https://fleasion.github.io/">
 
-  <style>
-    :root{
-      --bg-0:#0f1115;  /* base */
-      --bg-1:#0c0f14;  /* slightly darker */
-      --card:#14171c;  /* card surface */
-      --muted:#8b95a7; /* muted text */
-      --text:#e6eaf2;  /* main text */
-      --brand:#9AE6B4; /* soft green */
-      --brand-strong:#22c55e; /* accent */
-      --cta:#FDE68A;  /* warm accent */
-      --red:#ef4444;
-      --yellow:#fde047;
-      --green:#86efac;
-      --glass:rgba(20,23,28,0.55);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 18px;
-      --grid: rgba(255,255,255,.03);
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Fleasion">
+  <meta property="og:url" content="https://fleasion.github.io/">
+  <meta property="og:title" content="Fleasion — Roblox Asset Interceptor & Customization Toolkit">
+  <meta property="og:description" content="Actively maintained. Replace and inspect Roblox assets through a full desktop GUI on Windows, macOS, and Linux.">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/186699266?s=480&v=4">
+  <meta property="og:image:alt" content="Fleasion logo">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Fleasion — Roblox Asset Interceptor & Customization Toolkit">
+  <meta name="twitter:description" content="Actively maintained desktop GUI for Roblox asset replacement, cache scraping, previews, FastFlags, conversions, and more.">
+  <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/186699266?s=480&v=4">
+
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/186699266?s=64&v=4">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Fleasion",
+    "url": "https://fleasion.github.io/",
+    "downloadUrl": "https://github.com/fleasion/Fleasion/releases/latest",
+    "codeRepository": "https://github.com/fleasion/Fleasion",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Windows 10+, macOS 11+, Linux with Sober",
+    "isAccessibleForFree": true,
+    "description": "An actively maintained desktop application for intercepting, replacing, inspecting, previewing, converting, and exporting Roblox game assets in real time.",
+    "dateModified": "2026-09-01",
+    "author": {
+      "@type": "Organization",
+      "name": "Fleasion contributors",
+      "url": "https://github.com/fleasion"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{ margin:0; background: var(--bg-0); color:var(--text);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      line-height:1.6; overflow-x:hidden; }
-
-    /* ====== Animated Background (gradient + particles) ====== */
-    .bg-wrap{position:fixed; inset:0; z-index:-2; overflow:hidden}
-    .bg-gradient{ position:absolute; inset:-20vmax; filter: blur(100px) saturate(120%);
-      background: radial-gradient(50% 50% at 10% 10%, rgba(154,230,180,.25), transparent 60%),
-                  radial-gradient(60% 60% at 90% 20%, rgba(253,230,138,.25), transparent 60%),
-                  radial-gradient(40% 40% at 30% 90%, rgba(147,197,253,.22), transparent 70%),
-                  radial-gradient(35% 35% at 70% 80%, rgba(244,114,182,.18), transparent 70%);
-      animation: floaty 28s ease-in-out infinite alternate; }
-    @keyframes floaty{from{transform:translate3d(-4%, -2%, 0) rotate(-2deg)} to{transform:translate3d(4%, 3%, 0) rotate(2deg)}}
-    canvas.particles{position:absolute; inset:0; z-index:-1; opacity:.35; mix-blend-mode:screen}
-
-    /* ====== Layout ====== */
-    .container{width:min(1100px, 92vw); margin:auto}
-    header{ position:sticky; top:0; z-index:50; backdrop-filter: blur(10px) saturate(120%);
-      background:linear-gradient(to bottom, rgba(12,15,20,.85), rgba(12,15,20,.25));
-      border-bottom:1px solid rgba(255,255,255,.06); transition: padding .25s ease, background .25s ease }
-    header.shrink .nav{padding:8px 8px}
-    .nav{display:flex; align-items:center; gap:12px; padding:12px 10px}
-    .brand{display:flex; align-items:center; gap:10px; padding:6px 10px; border-radius:12px}
-    .brand img{width:26px;height:26px; border-radius:6px; object-fit:cover; transition: width .2s ease, height .2s ease}
-    header.shrink .brand img{width:22px;height:22px}
-    .brand span{font-family:"Plus Jakarta Sans", Inter, system-ui; font-weight:800; letter-spacing:.3px}
-
-    .navspace{flex:1}
-    .nav a{color:var(--text); text-decoration:none; opacity:.9}
-    .topnav{display:flex; gap:10px; overflow:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none}
-    .topnav::-webkit-scrollbar{display:none}
-    .btn{display:inline-flex; gap:10px; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,.08);
-      padding:10px 14px; border-radius:14px; background:
-        radial-gradient(120% 80% at 0% 0%, rgba(255,255,255,.07), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));  
-      box-shadow: var(--shadow); cursor:pointer; transition: all .25s ease; position:relative; overflow:hidden}
-    .btn:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.18)}
-    .btn .ico{width:18px;height:18px;opacity:.9}
-    .btn.primary{background:
-      radial-gradient(120% 80% at 0% 0%, rgba(34,197,94,.18), transparent 60%),
-      linear-gradient(180deg, rgba(34,197,94,.18), rgba(34,197,94,.10)); border-color: rgba(34,197,94,.35)}
-
-    main{padding:40px 0 80px}
-
-    /* ====== Callout banner ====== */
-    .banner{background:rgba(255, 0, 0, 0.096); border:1px solid rgba(241, 42, 42, 0.25); margin:10px auto 0; border-radius:12px; padding:10px 12px; font-size:18px}
-
-    /* ====== Hero ====== */
-    .hero{display:grid; grid-template-columns: 1.2fr .8fr; gap:26px; align-items:center; padding:24px 0 40px}
-    .title{font-family:"Plus Jakarta Sans"; font-weight:800; font-size:clamp(34px, 5vw, 64px); line-height:1.05; letter-spacing:.3px; margin:0 0 12px;
-      background:linear-gradient(90deg, #fff, #c9f6d8, #fff); background-size:200% 100%; -webkit-background-clip:text; background-clip:text; color:transparent; animation:titleShimmer 10s linear infinite}
-    @keyframes titleShimmer{0%{background-position:0 0}100%{background-position:200% 0}}
-    .subtitle{color:var(--muted); font-size:clamp(16px, 2vw, 20px)}
-    .badges{display:flex; gap:10px; flex-wrap:wrap; margin:16px 0 22px}
-    .badge{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.04)}
-    .cta-row{display:flex; gap:12px; flex-wrap:wrap}
-
-    .hero-card{background:var(--glass); padding:16px; border-radius:var(--radius); border:1px solid rgba(255,255,255,.08); box-shadow: var(--shadow); position:relative; overflow:hidden}
-    .hero-card iframe{width:100%; aspect-ratio:16/9; border:0; border-radius:12px; display:block}
-
-    /* ====== Sections ====== */
-    .section{margin:60px 0}
-    .section h2{font-family:"Plus Jakarta Sans"; font-size:clamp(24px, 3vw, 36px); margin:0 0 8px}
-    .section p.lead{color:var(--muted); margin:0 0 20px}
-
-    .grid{display:grid; gap:16px}
-    .grid.cols-3{grid-template-columns: repeat(3, 1fr)}
-    .grid.cols-2{grid-template-columns: repeat(2, 1fr)}
-
-    /* ====== Cards (new textured + animated backgrounds) ====== */
-    .card{
-      position:relative; overflow:hidden; border-radius:var(--radius);
-      padding:18px; border:1px solid rgba(255,255,255,.06); color:var(--text);
-      background:
-        radial-gradient(120% 140% at var(--mx,50%) var(--my,120%), rgba(154,230,180,.08), rgba(34,197,94,.05) 35%, transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)),
-        repeating-linear-gradient(90deg, var(--grid) 0 1px, transparent 1px 24px),
-        repeating-linear-gradient(0deg,  var(--grid) 0 1px, transparent 1px 24px);
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
-      transform-style:preserve-3d;
-      transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, background-position .4s ease;
-    }
-    .card h3{margin:0 0 6px}
-    .card p{margin:0; color:var(--muted)}
-    .card .icon{width:32px;height:32px; opacity:.95}
-    .card:hover{box-shadow: 0 20px 50px rgba(0,0,0,.5)}
-    .card.compact{padding:14px}
-
-    /* hover float + subtle tilt */
-    .hover-float{transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease}
-    .hover-float:hover{transform: translateY(-4px) rotate3d(var(--rx,0), var(--ry,0), 0, 6deg)}
-
-    /* ====== Tabs (animated) ====== */
-    .tabs{display:flex; gap:8px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06); padding:6px; border-radius:12px; position:relative; overflow:hidden}
-    .tab-btn{position:relative; z-index:1; padding:8px 12px; border-radius:10px; font-weight:600; cursor:pointer; opacity:.85}
-    .tab-btn[aria-selected="true"]{opacity:1}
-    .tab-glider{position:absolute; top:6px; left:6px; height:calc(100% - 12px); width:120px; border-radius:10px; background:linear-gradient(180deg, rgba(154,230,180,.25), rgba(154,230,180,.10)); border:1px solid rgba(154,230,180,.4); box-shadow:var(--shadow); transition: all .35s cubic-bezier(.2,.8,.2,1)}
-    .tab-panels{margin-top:14px}
-    .tab-panel{display:none; animation: pop .35s ease forwards}
-    @keyframes pop{from{opacity:0; transform: translateY(6px) scale(.98)} to{opacity:1; transform:none}}
-
-    /* ====== FAQ (animated accordions) ====== */
-    .faq{display:grid; gap:10px}
-    details.faq-item{border:1px solid rgba(255,255,255,.08); border-radius:12px; background:rgba(255,255,255,.03); overflow:hidden}
-    details>summary{list-style:none; cursor:pointer; padding:14px 16px; position:relative; font-weight:600}
-    details>summary::-webkit-details-marker{display:none}
-    details[open]{animation: pop .3s ease}
-    .faq-body{padding:0 16px 16px; color:var(--muted)}
-    .twisty{position:absolute; right:12px; top:14px; width:18px; height:18px; transition: transform .25s ease}
-    details[open] .twisty{transform: rotate(90deg)}
-
-    /* ====== Footer ====== */
-    footer{margin:60px 0 30px; color:var(--muted); text-align:center}
-    .legal{opacity:.85}
-
-    /* ====== Utilities ====== */
-    .pill{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08)}
-    .chip{display:inline-flex; align-items:center; gap:6px; padding:4px 8px; border-radius:999px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); font-size:12px}
-    .muted{color:var(--muted)}
-    .row{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
-    .center{display:grid; place-items:center}
-    .kbd{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:.95em; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); padding:2px 6px; border-radius:6px}
-
-    /* ====== Mobile structure ====== */
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr; gap:16px}
-      .hero .cta-row{order:3}
-      .hero .subtitle{order:2}
-      .hero .title{order:1}
-      .grid.cols-3{grid-template-columns: 1fr}
-      .grid.cols-2{grid-template-columns: 1fr}
-      .mobile-nav{display:grid}
-      main{padding-bottom:110px} /* space for bottom nav */
-      .topnav .pill{padding:4px 8px; font-size:12px}
-      .btn{padding:8px 10px; border-radius:12px; font-size:14px}
-      .nav{gap:8px; padding:10px 8px}
-    }
-    .mobile-nav{display:none; position:fixed; z-index:60; left:50%; transform:translateX(-50%); bottom:14px; width:min(680px, 92vw);
-      background:rgba(20,23,28,.7); backdrop-filter: blur(8px) saturate(120%);
-      border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:8px; grid-template-columns: repeat(5, 1fr); gap:8px}
-    .mobile-nav a{display:grid; place-items:center; padding:8px; border-radius:12px; text-decoration:none; color:var(--text); opacity:.9; border:1px solid rgba(255,255,255,.06)}
-    .mobile-nav a.active{background:rgba(154,230,180,.15); border-color:rgba(154,230,180,.35)}
-
-    /* ====== Reduced motion ====== */
-    @media (prefers-reduced-motion: reduce){ *{animation:none!important; transition:none!important} .bg-gradient{display:none} canvas.particles{display:none} }
-  </style>
+  }
+  </script>
 </head>
 <body>
-  <!-- Animated background -->
-  <div class="bg-wrap" aria-hidden="true">
-    <div class="bg-gradient"></div>
-    <canvas class="particles"></canvas>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient__orb ambient__orb--one"></div>
+    <div class="ambient__orb ambient__orb--two"></div>
+    <div class="ambient__grid"></div>
   </div>
 
-  <!-- Header / Nav -->
-  <header id="siteHeader">
-    <div class="container nav">
-      <a href="#top" class="brand" aria-label="Fleasion home">
-        <img src="https://avatars.githubusercontent.com/u/186699266?s=48&v=4" alt="Fleasion logo">
+  <header class="site-header" id="site-header">
+    <div class="shell nav-wrap">
+      <a class="brand" href="#top" aria-label="Fleasion home">
+        <img src="https://avatars.githubusercontent.com/u/186699266?s=96&v=4" alt="" width="38" height="38">
         <span>Fleasion</span>
       </a>
-      <nav class="topnav">
-        <a href="#features" class="pill">Features</a>
-        <a href="#games" class="pill">Games</a>
-        <a href="#troubleshoot" class="pill">Troubleshoot</a>
-        <a href="#faq" class="pill">FAQ</a>
-        <a href="https://github.com/fleasion/fleasion/" class="pill" target="_blank" rel="noopener">GitHub</a>
+
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#features">Features</a>
+        <a href="#workflow">How it works</a>
+        <a href="#platforms">Platforms</a>
+        <a href="#faq">FAQ</a>
       </nav>
-      <div class="navspace"></div>
-      <a class="btn primary" href="https://github.com/fleasion/Fleasion/archive/refs/tags/rewrite-fix.zip" id="downloadButton">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download
-      </a>
+
+      <div class="nav-actions">
+        <a class="button button--ghost button--small" href="https://github.com/fleasion/Fleasion" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="button button--primary button--small" href="https://github.com/fleasion/Fleasion/releases/latest" data-download-link>Download</a>
+      </div>
     </div>
   </header>
 
-  <!-- Mobile bottom nav -->
-  <nav class="mobile-nav" aria-label="Primary">
-    <a href="#top" data-nav>Home</a>
-    <a href="#features" data-nav>Features</a>
-    <a href="#games" data-nav>Games</a>
-    <a href="#troubleshoot" data-nav>Fix</a>
-    <a href="#faq" data-nav>FAQ</a>
-  </nav>
-
-  <main class="container">
-    <!-- INFO BANNER -->
-    <div class="banner">
-      <strong>FLEASION IS CURRENTLY DOWN:</strong> Changes done with Fleasion will <strong>not apply.</strong><br>
-      <a class="hyperlink" href="https://discord.gg/hXyhKehEZF" target="_blank" rel="noopener">To know when Fleasion is back up, news, etc. - join our Discord server!</a>.
-    </div>
-    
-
-    <!-- HERO -->
-    <section class="hero" id="top">
-      <div>
-        <div class="badges">
-          <span class="chip">In development</span>
-          <span class="chip">Multi-game support</span>
-          <span class="chip">Open-source</span>
+  <main id="main">
+    <section class="hero shell" id="top">
+      <div class="hero-copy reveal">
+        <div class="status-pill">
+          <span class="status-dot" aria-hidden="true"></span>
+          <strong>Open source</strong>
+          <span aria-hidden="true">·</span>
+          <span>Windows · macOS · Linux</span>
         </div>
-        <h1 class="title">A <em style="font-style:italic; text-decoration:underline; text-decoration-thickness:3px; text-decoration-color: var(--cta)">new take</em> on Roblox customization.</h1>
-        <p class="subtitle">Customize gun, hit and kill sounds, textures and skins, sleeves, and skyboxes — with an animated, responsive UI. Supported games include <strong>AR2, DaHood, FJTR, Phantom Forces, Rivals, and Roblox</strong>.</p>
-        <div class="cta-row">
-          <a class="btn" href="https://discord.com/invite/pdtce585f6" target="_blank" rel="noopener">Join Discord</a>
-          <a class="btn" href="#video" data-open-modal>Watch tutorial</a>
-          <a class="btn" href="https://github.com/fleasion/fleasion/" target="_blank" rel="noopener">GitHub</a>
+
+        <h1>Roblox assets,<br><span>under your control.</span></h1>
+        <p class="hero-lead">Fleasion is a desktop toolkit for intercepting, replacing, inspecting, previewing, converting, and exporting Roblox assets in real time.</p>
+
+        <div class="hero-actions">
+          <a class="button button--primary button--large" href="https://github.com/fleasion/Fleasion/releases/latest" data-download-link>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 15v4h14v-4"/></svg>
+            <span data-download-label>Download latest release</span>
+          </a>
+          <a class="button button--ghost button--large" href="#features">Explore features</a>
+        </div>
+
+        <div class="hero-meta" aria-label="Project highlights">
+          <span><strong>Windows</strong> 10+</span>
+          <span><strong>macOS</strong> 11+</span>
+          <span><strong>Linux</strong> Sober</span>
+          <span><strong>Open source</strong> on GitHub</span>
         </div>
       </div>
-      <div class="hero-card hover-float">
-        <div class="row" style="justify-content:space-between; margin-bottom:10px">
-          <span class="pill">Live preview</span>
-          <span class="pill">Lightweight</span>
-        </div>
-        <iframe id="video" title="Fleasion Tutorial" loading="lazy" width="560" height="315" src="https://www.youtube-nocookie.com/embed/eddDT-c3iB8?modestbranding=1&rel=0&playsinline=1&controls=1" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </div>
-    </section>
 
-    <!-- FEATURES with tabs -->
-    <section id="features" class="section">
-      <h2>What you can customize</h2>
-      <p class="lead">Swap or remove assets safely. Everything here is <strong>non-cheat</strong> and aligned with StyLiS/other game moderation guidelines.</p>
-
-      <div class="tabs" role="tablist" aria-label="Customization areas">
-        <div class="tab-glider" aria-hidden="true"></div>
-        <button class="tab-btn" role="tab" aria-selected="true" aria-controls="panel-1" id="tab-1">Sounds</button>
-        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-2" id="tab-2">Textures & Skins</button>
-        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-3" id="tab-3">Skyboxes</button>
-      </div>
-      <div class="tab-panels">
-        <div class="tab-panel" id="panel-1" role="tabpanel" aria-labelledby="tab-1">
-          <div class="grid cols-3">
-            <div class="card hover-float"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5 6 9H2v6h4l5 4z"/><circle cx="19" cy="12" r="3"/></svg><h3>Gun sounds</h3><p>Replace firing, reload, and foley sounds with your own set.</p></div>
-            <div class="card hover-float"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/></svg><h3>Hit & kill</h3><p>Personalize hitmarker and kill confirmation sounds.</p></div>
-            <div class="card hover-float"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 13v-2a4 4 0 0 1 8 0v2"/><rect x="6" y="13" width="12" height="8" rx="2"/></svg><h3>UI cues</h3><p>Subtle UI audio for menus and confirmations.</p></div>
-          </div>
+      <div class="hero-video reveal">
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/1u97OlqXqNM?rel=0"
+            title="FLEASION 2026 TUTORIAL by Shulbs"
+            loading="eager"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
         </div>
-        <div class="tab-panel" id="panel-2" role="tabpanel" aria-labelledby="tab-2">
-          <div class="grid cols-3">
-            <div class="card hover-float"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg><h3>Skins</h3><p>Swap weapon skins. Preview instantly.</p></div>
-            <div class="card hover-float"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h7v7H3zM14 14h7v7h-7z"/><path d="M14 3h7M3 14v7M10 3v7M3 10h7"/></svg><h3>Textures</h3><p>Smooth out textures or remove them for performance.</p></div>
-            <div class="card hover-float"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21l-6-6"/><circle cx="10" cy="10" r="7"/></svg><h3>Sleeves</h3><p>Toggle sleeves; tint follows team colors by design.</p></div>
+        <div class="video-meta">
+          <div>
+            <span class="eyebrow">Community tutorial</span>
+            <strong>FLEASION 2026 TUTORIAL</strong>
           </div>
-        </div>
-        <div class="tab-panel" id="panel-3" role="tabpanel" aria-labelledby="tab-3">
-          <div class="grid cols-3">
-            <div class="card hover-float"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20"/><path d="M3 5h18M4 19h16"/></svg><h3>Default skyboxes</h3><p>Auto-enable default skyboxes for played maps.</p></div>
-            <div class="card hover-float"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3l7 7M21 3l-7 7M3 21l7-7M21 21l-7-7"/></svg><h3>Custom skyboxes</h3><p>Best with Bloxstrap — drop files into the folder and go.</p></div>
-            <div class="card hover-float"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg><h3>Night maps</h3><p>Note: Custom skyboxes won’t apply to night-time maps.</p></div>
-          </div>
+          <span>Shulbs · Aug 3, 2026</span>
         </div>
       </div>
     </section>
 
-    <!-- GAMES (sub-heading) -->
-    <section id="games" class="section">
-      <h2>Supported games</h2>
-      <p class="lead">Fleasion supports multiple Roblox experiences — not just Phantom Forces.</p>
-
-      <!-- Desktop grid -->
-      <div class="grid cols-2" id="games-grid">
-        <div class="card hover-float" data-tilt><h3>AR2</h3>
-          <ul class="muted"><li>Sights</li><li>Weapon sounds</li><li>Hit sounds</li><li>Weapon skins</li><li>No textures</li></ul>
-        </div>
-        <div class="card hover-float" data-tilt><h3>DaHood</h3>
-          <ul class="muted"><li>Custom skyboxes</li><li>Hitmarker tweaks</li><li>Gun sounds</li><li>Client avatar tweaks</li><li>Eating sound</li></ul>
-        </div>
-        <div class="card hover-float compact" data-tilt><h3>FJTR</h3>
-          <ul class="muted"><li>Wave obby finish</li><li>Point auto shake</li><li>Transition polish</li><li>Optional HUD clean‑up</li><li>Small QoL tweaks</li></ul>
-        </div>
-        <div class="card hover-float" data-tilt><h3>Phantom Forces</h3>
-          <ul class="muted"><li>Sights</li><li>Arm model tweaks</li><li>Sleeves</li><li>No textures</li><li>Default skyboxes</li><li>Gun skins (temp deprecated)</li><li>Gun sounds</li><li>Gun smoke</li><li>Hit tweaks</li><li>Grenade tweaks</li></ul>
-          <p class="muted" style="margin-top:8px">PF anticheat note: any sound longer than its replacement will be silent.</p>
-        </div>
-        <div class="card hover-float" data-tilt><h3>Rivals</h3>
-          <ul class="muted"><li>Custom skyboxes</li><li>Custom hit sounds</li><li>Custom gun sounds</li><li>No arms</li><li>Automatic multi‑part downloads</li></ul>
-        </div>
-        <div class="card hover-float compact" data-tilt><h3>Roblox (general)</h3>
-          <ul class="muted"><li>Client avatar tweaks</li><li>Custom textures</li><li>Texture performance presets</li><li>Minimal UI option</li><li>Clean icons</li></ul>
-        </div>
-      </div>
-
-      <!-- Mobile accordions -->
-      <div class="faq" id="games-accordion" style="display:none">
-        <details class="faq-item"><summary>AR2</summary><div class="faq-body"><ul><li>Sights</li><li>Weapon sounds</li><li>Hit sounds</li><li>Weapon skins</li><li>No textures</li></ul></div></details>
-        <details class="faq-item"><summary>DaHood</summary><div class="faq-body"><ul><li>Custom skyboxes</li><li>Hitmarker tweaks</li><li>Gun sounds</li><li>Client avatar tweaks</li><li>Eating sound</li></ul></div></details>
-        <details class="faq-item"><summary>FJTR</summary><div class="faq-body"><ul><li>Wave obby finish</li><li>Point auto shake</li><li>Transition polish</li><li>Optional HUD clean‑up</li><li>QoL tweaks</li></ul></div></details>
-        <details class="faq-item"><summary>Phantom Forces</summary><div class="faq-body"><ul><li>Sights</li><li>Arm model tweaks</li><li>Sleeves</li><li>No textures</li><li>Default skyboxes</li><li>Gun skins (temp deprecated)</li><li>Gun sounds</li><li>Gun smoke</li><li>Hit tweaks</li><li>Grenade tweaks</li></ul><p class="muted">PF anticheat note: any sound longer than its replacement will be silent.</p></div></details>
-        <details class="faq-item"><summary>Rivals</summary><div class="faq-body"><ul><li>Custom skyboxes</li><li>Custom hit sounds</li><li>Custom gun sounds</li><li>No arms</li><li>Automatic multi‑part downloads</li></ul></div></details>
-        <details class="faq-item"><summary>Roblox (general)</summary><div class="faq-body"><ul><li>Client avatar tweaks</li><li>Custom textures</li><li>Texture performance presets</li><li>Minimal UI option</li><li>Clean icons</li></ul></div></details>
+    <section class="proof-strip" aria-label="Project status">
+      <div class="shell proof-grid">
+        <div><strong>Actively maintained</strong><span>Current releases are published on GitHub</span></div>
+        <div><strong>Standalone builds</strong><span>Release users do not need Python installed</span></div>
+        <div><strong>Dozens of asset types</strong><span>Browse what Roblox downloads through the scraper</span></div>
+        <div><strong>Local interception</strong><span>Replacement and capture happen on your machine</span></div>
       </div>
     </section>
 
-    <!-- TROUBLESHOOT -->
-    <section id="troubleshoot" class="section">
-      <h2>Can’t run <code>run.bat</code>?</h2>
-      <p class="lead">Do this in order. It’s quick, and handles the common causes.</p>
-      <ol>
-        <li><strong>Check your folders.</strong> <code>storage</code> must sit next to <code>run.bat</code> in the same directory.</li>
-        <li><strong>Look for <code>autoupdate.py</code> in <code>storage</code>.</strong> If it’s missing, Fleasion will open a link to download it. Put the file into <code>storage</code>.</li>
-        <li><strong>Run it.</strong> Try launching <code>run.bat</code> again.</li>
-        <li><strong>If it still fails:</strong>
-          <ul>
-            <li>Uninstall Python, then reinstall the latest from <a href="https://python.org/downloads" target="_blank" rel="noopener">python.org/downloads</a>.</li>
-            <li>During install, <span class="kbd">✔ Add to PATH</span>.</li>
-            <li>After reinstall, run <code>run.bat</code> again ^_^</li>
-          </ul>
-        </li>
-      </ol>
+    <section class="section shell" id="features">
+      <div class="section-heading reveal">
+        <p class="kicker">Asset tooling in one place</p>
+        <h2>One app. A ridiculous amount of tooling.</h2>
+        <p>Use Fleasion for asset replacement, cache exploration, Roblox client modifications, account-aware launch tools, proxy inspection, and conversion tools from one desktop app.</p>
+      </div>
 
-      <details class="faq-item" style="margin-top:14px">
-        <summary>🤓 Nerd yap (why the error appears)
-          <svg class="twisty" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg>
-        </summary>
-        <div class="faq-body">
-          The error shows up whenever:
-          <ul>
-            <li>There’s no <code>autoupdate.py</code> in the <code>storage</code> folder</li>
-            <li>The Fleasion code encounters an error (usually because Python is outdated)</li>
-            <li>You can’t call <code>python</code> from terminal (Python not on <code>PATH</code>)</li>
-          </ul>
-        </div>
-      </details>
+      <div class="feature-grid">
+        <article class="feature-card feature-card--wide reveal">
+          <div class="feature-icon">↔</div>
+          <div>
+            <span class="eyebrow">Replacer</span>
+            <h3>Replace, redirect, or remove assets.</h3>
+            <p>Build reusable replacement profiles with Roblox asset IDs, CDN URLs, and local files. Group rules, enable or disable profiles, import/export JSON, and use community presets.</p>
+            <div class="tag-row"><span>Profiles</span><span>Local files</span><span>CDN URLs</span><span>Community presets</span></div>
+          </div>
+        </article>
 
-      <div class="card hover-float" style="margin-top:16px">
-        <h3 style="margin:0 0 8px">Changes keep disappearing?</h3>
-        <p class="muted">On Windows, go to <strong>Storage Sense</strong> and turn it <strong>off</strong>. Then re‑apply your Fleasion changes. Storage Sense cleans temporary files — Fleasion edits temporary cache to achieve your results, so they were getting wiped.</p>
+        <article class="feature-card reveal">
+          <div class="feature-icon">⌁</div>
+          <span class="eyebrow">Scraper & cache viewer</span>
+          <h3>See what Roblox actually downloads.</h3>
+          <p>Capture assets live, then search by ID, name, type, hash, or URL. Filter columns, inspect metadata, copy converted files, and export raw or converted assets.</p>
+        </article>
+
+        <article class="feature-card reveal">
+          <div class="feature-icon">◫</div>
+          <span class="eyebrow">Live previews</span>
+          <h3>Preview before you replace.</h3>
+          <p>Images, audio, JSON, texture packs, 3D meshes, and R6/R15 animations have purpose-built viewers—without leaving the dashboard.</p>
+        </article>
+
+        <article class="feature-card reveal">
+          <div class="feature-icon">◇</div>
+          <span class="eyebrow">Conversion pipeline</span>
+          <h3>Turn Roblox formats into useful files.</h3>
+          <p>Convert KTX textures to PNG, resolve texture packs, and move between Roblox mesh/CSG data and OBJ workflows in both directions.</p>
+        </article>
+
+        <article class="feature-card reveal">
+          <div class="feature-icon">⚑</div>
+          <span class="eyebrow">Client modifications</span>
+          <h3>More than asset swapping.</h3>
+          <p>Manage sounds, textures, default skyboxes, R6 avatar meshes, custom fonts, custom modifications, and client settings from the GUI.</p>
+        </article>
+
+        <article class="feature-card feature-card--accent reveal">
+          <div class="feature-icon">ƒ</div>
+          <span class="eyebrow">Custom FastFlags</span>
+          <h3>Edit live. Save profiles. Import and export.</h3>
+          <p>Fleasion can override ClientSettings FastFlags through its proxy, with named profiles and live editing. This is an advanced feature with account risk—Fleasion warns before enabling it.</p>
+          <a class="text-link" href="https://github.com/fleasion/Fleasion#custom-fastflags" target="_blank" rel="noopener noreferrer">Read the FastFlag warning <span>→</span></a>
+        </article>
+
+        <article class="feature-card reveal">
+          <div class="feature-icon">⌖</div>
+          <span class="eyebrow">Subplace tools</span>
+          <h3>Launch deeper into experiences.</h3>
+          <p>Browse and join subplaces, work with job IDs and private-server links, keep favorites, and use proxy-aware launching where supported.</p>
+        </article>
+
+        <article class="feature-card reveal">
+          <div class="feature-icon">◎</div>
+          <span class="eyebrow">Account-aware utilities</span>
+          <h3>Tools that understand your Roblox login.</h3>
+          <p>The Miscellaneous tab includes account management, browser-login import, multi-instance launching on supported setups, reserved-server tools, and client-side username display customization.</p>
+        </article>
+
+        <article class="feature-card reveal">
+          <div class="feature-icon">⇄</div>
+          <span class="eyebrow">Proxy inspector</span>
+          <h3>Inspect traffic when you need to.</h3>
+          <p>Fleasion exposes its proxy traffic UI for filtering, highlighting, preserving, forwarding, dropping, and auto-replacing requests in Env Proxy mode.</p>
+        </article>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="section">
-      <h2>Frequently asked questions</h2>
-      <p class="lead">Quick answers — built‑in options are allowed by StyLiS developers.</p>
-      <div class="faq">
-        <details class="faq-item">
-          <summary>Hiding my arms seems like an advantage. Is this cheating?
-            <svg class="twisty" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg>
-          </summary>
-          <div class="faq-body"><strong style="color:var(--green)">No.</strong> Fleasion <strong>isn’t a cheat</strong> and every built‑in customization option is allowed by StyLiS developers.</div>
-        </details>
-        <details class="faq-item">
-          <summary>Is Fleasion a virus?
-            <svg class="twisty" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg>
-          </summary>
-          <div class="faq-body"><strong style="color:var(--green)">No.</strong> Fleasion is <a href="https://github.com/fleasion/fleasion/" target="_blank" rel="noopener">open‑source</a>. No adware or malware.</div>
-        </details>
-        <details class="faq-item">
-          <summary>How do I get custom skyboxes?
-            <svg class="twisty" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg>
-          </summary>
-          <div class="faq-body">
-            We support them with Bloxstrap. Use this shortcut to open the folder:
-            <pre style="white-space:pre-wrap">cmd /c "mkdir "%userprofile%\AppData\Local\Bloxstrap\Modifications\PlatformContent\pc\textures\sky" &amp; explorer "%userprofile%\AppData\Local\Bloxstrap\Modifications\PlatformContent\pc\textures\sky""</pre>
-          </div>
-        </details>
-        <details class="faq-item">
-          <summary>My custom skyboxes aren’t working!
-            <svg class="twisty" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg>
-          </summary>
-          <div class="faq-body"><strong style="color:var(--red)">On night maps, custom skyboxes don’t work.</strong> Use “default skyboxes” after playing a bit to activate on maps you already played.</div>
-        </details>
-        <details class="faq-item">
-          <summary>It says it didn’t find the hash — what now?
-            <svg class="twisty" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg>
-          </summary>
-          <div class="faq-body">
-            Some actions need cache to load. Try: equip the sight; trigger the sound; equip/preview the skin; play maps to load default skyboxes & textures. You may also need to rejoin the <a href="https://www.roblox.com/games/18504289170/Texture-Game/" target="_blank" rel="noopener">Texture Game</a>.
-          </div>
-        </details>
-        <details class="faq-item">
-          <summary>Why are sleeves sometimes red/blue?
-            <svg class="twisty" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg>
-          </summary>
-          <div class="faq-body">Phantom Forces tints sleeves by team color. <strong>Not removable.</strong></div>
-        </details>
-        <details class="faq-item">
-          <summary>Can we add something that doesn’t exist in the game yet?
-            <svg class="twisty" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg>
-          </summary>
-          <div class="faq-body"><strong style="color:var(--red)">No.</strong> Fleasion can only <strong style="color:var(--green)">replace</strong> or <strong style="color:var(--green)">remove</strong>, not create.</div>
-        </details>
-        <details class="faq-item">
-          <summary>Can I request a hash / asset?
-            <svg class="twisty" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg>
-          </summary>
-          <div class="faq-body">Yes — request it in <a href="https://discord.com/invite/pdtce585f6/" target="_blank" rel="noopener">our Discord</a>. Some assets might not be possible.</div>
-        </details>
+    <section class="section section--panel" id="workflow">
+      <div class="shell workflow-grid">
+        <div class="section-heading section-heading--sticky reveal">
+          <p class="kicker">How it works</p>
+          <h2>Local proxy. Real-time control.</h2>
+          <p>Fleasion routes Roblox Player asset traffic through a local HTTPS proxy. When Roblox requests an asset, Fleasion can let it through, replace it, remove it, redirect it, or capture it for inspection.</p>
+          <a class="text-link" href="https://github.com/fleasion/Fleasion#how-it-works" target="_blank" rel="noopener noreferrer">Technical details on GitHub <span>→</span></a>
+        </div>
+
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step-number">01</span>
+            <div><h3>Launch Fleasion</h3><p>The desktop app starts its local proxy and lives in the system tray. Open the Dashboard whenever you want to configure or inspect it.</p></div>
+          </li>
+          <li class="step reveal">
+            <span class="step-number">02</span>
+            <div><h3>Build your setup</h3><p>Create replacement profiles, enable client modifications, configure advanced FastFlags, or turn on the live scraper.</p></div>
+          </li>
+          <li class="step reveal">
+            <span class="step-number">03</span>
+            <div><h3>Launch Roblox</h3><p>Env Proxy mode relaunches Roblox Player with a scoped proxy environment. A Hosts File compatibility mode is also available.</p></div>
+          </li>
+          <li class="step reveal">
+            <span class="step-number">04</span>
+            <div><h3>Replace or capture on demand</h3><p>As assets are requested, Fleasion applies your rules and can collect originals into its cache viewer for preview, conversion, and export.</p></div>
+          </li>
+        </ol>
       </div>
     </section>
 
-    <!-- Credits / Legal -->
-    <section class="section">
-      <div class="card">
-        <div class="row" style="justify-content:space-between; align-items:center">
-          <div class="row">
-            <span class="chip">VERSION REWRITE</span>
-            <span class="chip">Helped by community</span>
-          </div>
-          <div class="row">
-            <a class="btn" href="https://discord.com/invite/pdtce585f6" target="_blank" rel="noopener">Join community</a>
-          </div>
+    <section class="section shell" id="platforms">
+      <div class="section-heading reveal">
+        <p class="kicker">Cross-platform</p>
+        <h2>Windows, macOS, and Linux.</h2>
+        <p>Release builds are published for all three. Platform plumbing differs, but the dashboard and core replacement workflows travel with you.</p>
+      </div>
+
+      <div class="platform-grid">
+        <article class="platform-card reveal">
+          <div class="platform-mark">⊞</div>
+          <div><span class="eyebrow">Windows 10+</span><h3>Native standalone build</h3><p>Env Proxy runs the GUI as your normal user and scopes proxy settings to Roblox Player. Microsoft Store/Xbox Roblox has package-aware handling, with Hosts File mode available as a compatibility path.</p></div>
+        </article>
+        <article class="platform-card reveal">
+          <div class="platform-mark">⌘</div>
+          <div><span class="eyebrow">macOS 11+</span><h3>Universal macOS release</h3><p>Supports normal Roblox installations plus Froststrap-managed and AppleBlox custom paths. Release archives are built as universal macOS apps.</p></div>
+        </article>
+        <article class="platform-card reveal">
+          <div class="platform-mark">🐧</div>
+          <div><span class="eyebrow">Linux</span><h3>Sober integration</h3><p>Fleasion supports the Sober Flatpak, including its asset overlay and FastFlag configuration, with Linux client behavior routed through a dedicated client registry.</p></div>
+        </article>
+      </div>
+
+      <div class="release-banner reveal">
+        <div>
+          <span class="eyebrow">Latest stable release</span>
+          <h3 data-release-title>Available on GitHub Releases</h3>
+          <p data-release-meta>Standalone builds are published for Windows, macOS, and Linux.</p>
         </div>
-        <p class="muted" style="margin-top:12px">Software developed by @8ar, @cro.p, @yoloblokers, @decooooo, @3tcy · Help from @jan_darkk, @tm2k · Updated tutorial by @rang_tanga.</p>
-        <p class="muted legal">This project is not affiliated with, endorsed by, or associated with Roblox Corporation. Roblox and all related logos, brands, and assets are trademarks or registered trademarks of Roblox Corporation.</p>
+        <a class="button button--primary" href="https://github.com/fleasion/Fleasion/releases/latest" data-download-link><span data-download-label>Download latest release</span></a>
+      </div>
+    </section>
+
+    <section class="section shell" id="under-the-hood">
+      <div class="section-heading reveal">
+        <p class="kicker">Built for people who like digging</p>
+        <h2>The dashboard is only the front door.</h2>
+      </div>
+
+      <div class="detail-grid">
+        <div class="detail-card reveal"><strong>System tray workflow</strong><p>Dashboard, logs, cache deletion, settings, themes, run-on-boot, desktop integration, and more.</p></div>
+        <div class="detail-card reveal"><strong>3D mesh viewer</strong><p>Orbit and FPS camera modes, grid/wireframe controls, vertex colors, and auto-rotation.</p></div>
+        <div class="detail-card reveal"><strong>Animation viewer</strong><p>R15/R6 playback, freecam movement, playback timescale, and grid visualization.</p></div>
+        <div class="detail-card reveal"><strong>Automatic conversion</strong><p>Texture and model conversion happens locally so scraped assets are easier to inspect and reuse.</p></div>
+        <div class="detail-card reveal"><strong>Profile management</strong><p>Multiple replacement configurations plus import/export keep experiments separate and portable.</p></div>
+        <div class="detail-card reveal"><strong>Proxy modes</strong><p>Use the scoped Roblox Env Proxy by default or the legacy Hosts File route when compatibility requires it.</p></div>
+      </div>
+    </section>
+
+    <section class="section section--panel" id="faq">
+      <div class="shell faq-layout">
+        <div class="section-heading reveal">
+          <p class="kicker">FAQ</p>
+          <h2>Frequently asked questions.</h2>
+          <p>For troubleshooting and feature-specific caveats, the GitHub README and Discord community have the most detail.</p>
+        </div>
+
+        <div class="faq-list">
+          <details class="reveal" open>
+            <summary>How do I install Fleasion?</summary>
+            <p>Download the standalone build for your platform from GitHub Releases. Python 3.14+ and <code>uv</code> are only needed if you choose to run or build Fleasion from source.</p>
+          </details>
+          <details class="reveal">
+            <summary>What can Fleasion replace?</summary>
+            <p>Replacement rules can target Roblox assets by ID or asset type and point to another asset ID, a URL, a local file, or an empty replacement to remove supported content. The scraper recognizes dozens of Roblox asset types.</p>
+          </details>
+          <details class="reveal">
+            <summary>Does Fleasion modify Roblox servers?</summary>
+            <p>No. Fleasion's normal replacement and capture workflows happen locally on your machine by intercepting Roblox Player traffic through a local proxy. Other players do not see your ordinary client-side asset replacements.</p>
+          </details>
+          <details class="reveal">
+            <summary>Is every Fleasion feature risk-free?</summary>
+            <p>No. Roblox has stated that client modifications are not permitted, and game moderation can still take action. Custom FastFlags are especially advanced: they bypass Roblox's small locally permitted allowlist and may carry account risk. Fleasion displays a confirmation before enabling them. Use advanced modifications with your own judgment.</p>
+          </details>
+          <details class="reveal">
+            <summary>Where should I download Fleasion?</summary>
+            <p>Use only the official <a href="https://github.com/fleasion/Fleasion/releases/latest" target="_blank" rel="noopener noreferrer">GitHub Releases page</a>. The project repository and Fleasion community links below are the canonical sources.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell cta-section">
+      <div class="cta-card reveal">
+        <div>
+          <p class="kicker">Ready when Roblox is</p>
+          <h2>Download Fleasion.</h2>
+          <p>Grab the current standalone build, inspect the source, or join the community if you want help, presets, or project news.</p>
+        </div>
+        <div class="cta-buttons">
+          <a class="button button--primary button--large" href="https://github.com/fleasion/Fleasion/releases/latest" data-download-link><span data-download-label>Download latest release</span></a>
+          <a class="button button--ghost button--large" href="https://discord.gg/hXyhKehEZF" target="_blank" rel="noopener noreferrer">Join Discord</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="row center" style="gap:14px; justify-content:center">
-        <span class="muted">© <span id="year"></span> Fleasion</span>
-        <span class="chip">Modern · Animated</span>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div>
+        <a class="brand" href="#top"><img src="https://avatars.githubusercontent.com/u/186699266?s=64&v=4" alt="" width="32" height="32"><span>Fleasion</span></a>
+        <p>Open-source Roblox asset interception and customization tooling.</p>
       </div>
+      <div class="footer-links">
+        <div><strong>Project</strong><a href="https://github.com/fleasion/Fleasion" target="_blank" rel="noopener noreferrer">Source</a><a href="https://github.com/fleasion/Fleasion/releases" target="_blank" rel="noopener noreferrer">Releases</a><a href="https://github.com/fleasion/Fleasion/issues" target="_blank" rel="noopener noreferrer">Issues</a></div>
+        <div><strong>Community</strong><a href="https://discord.gg/hXyhKehEZF" target="_blank" rel="noopener noreferrer">Discord</a><a href="https://ko-fi.com/fleasion" target="_blank" rel="noopener noreferrer">Ko-fi</a></div>
+      </div>
+    </div>
+    <div class="shell footer-bottom">
+      <span>© <span id="year">2026</span> Fleasion contributors.</span>
+      <span>Not affiliated with or endorsed by Roblox Corporation.</span>
     </div>
   </footer>
 
-  <!-- Modal for video (animated) -->
-  <dialog id="modal" style="border:none; border-radius:16px; background:rgba(12,15,20,.9); color:var(--text); width:min(900px, 92vw);">
-    <div style="padding:10px 12px; display:flex; align-items:center; gap:10px; justify-content:space-between">
-      <strong>Tutorial</strong>
-      <button id="closeModal" class="btn" style="padding:6px 10px">Close</button>
-    </div>
-    <div style="padding:0 12px 12px">
-      <iframe title="Fleasion Tutorial" loading="lazy" width="560" height="315" style="width:100%; aspect-ratio:16/9; border:0; border-radius:12px" src="https://www.youtube-nocookie.com/embed/eddDT-c3iB8?modestbranding=1&rel=0&playsinline=1&controls=1" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
-  </dialog>
-
-  <script>
-    // ====== Year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // ====== Header shrink on scroll
-    const siteHeader = document.getElementById('siteHeader');
-    const shrinkObs = new IntersectionObserver(([e])=>{
-      siteHeader.classList.toggle('shrink', !e.isIntersecting);
-    }, {threshold: 0, rootMargin: '-1px 0px 0px 0px'});
-    shrinkObs.observe(document.querySelector('.bg-wrap'));
-
-    // ====== Particles canvas
-    const canvas = document.querySelector('canvas.particles');
-    const ctx = canvas.getContext('2d');
-    let DPR = Math.min(window.devicePixelRatio || 1, 2);
-    let w, h, particles;
-    function resize(){
-      w = canvas.width = innerWidth * DPR; h = canvas.height = innerHeight * DPR;
-      canvas.style.width = innerWidth + 'px'; canvas.style.height = innerHeight + 'px';
-      makeParticles();
-    }
-    function makeParticles(){
-      const count = Math.floor((innerWidth * innerHeight) / 13000);
-      particles = Array.from({length: count}, () => ({
-        x: Math.random()*w, y: Math.random()*h,
-        r: (Math.random()*1.5+0.5)*DPR,
-        vx: (Math.random()-.5)*0.15*DPR,
-        vy: (Math.random()-.5)*0.15*DPR,
-        a: Math.random()*0.5 + 0.2
-      }));
-    }
-    function step(){
-      ctx.clearRect(0,0,w,h);
-      for(const p of particles){
-        p.x += p.vx; p.y += p.vy;
-        if(p.x < 0) p.x = w; if(p.x > w) p.x = 0;
-        if(p.y < 0) p.y = h; if(p.y > h) p.y = 0;
-        ctx.globalAlpha = p.a; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2); ctx.fillStyle = '#9AE6B4'; ctx.fill();
-      }
-      requestAnimationFrame(step);
-    }
-    resize(); step();
-    addEventListener('resize', resize);
-
-    // ====== Scroll reveal
-    const observer = new IntersectionObserver((entries)=>{
-      for(const e of entries){ if(e.isIntersecting){ e.target.style.transform='none'; e.target.style.opacity='1'; observer.unobserve(e.target);} }
-    },{threshold:.12});
-    document.querySelectorAll('.hover-float, .card, .hero-card, .section h2, .section p.lead, .tabs').forEach(el=>{
-      el.style.opacity='0'; el.style.transform='translateY(10px)'; observer.observe(el);
-    });
-
-    // ====== Tabs logic with animated glider
-    const tabs = Array.from(document.querySelectorAll('.tab-btn'));
-    const panels = Array.from(document.querySelectorAll('.tab-panel'));
-    const glider = document.querySelector('.tab-glider');
-    function selectTab(idx){
-      tabs.forEach((t,i)=>{ t.setAttribute('aria-selected', i===idx); });
-      panels.forEach((p,i)=>{ p.style.display = i===idx ? 'block' : 'none'; });
-      const active = tabs[idx];
-      const {left, width} = active.getBoundingClientRect();
-      const parentLeft = active.parentElement.getBoundingClientRect().left;
-      glider.style.transform = `translateX(${left - parentLeft - 6}px)`; // -6 accounts for padding
-      glider.style.width = width + 'px';
-    }
-    tabs.forEach((btn, i)=> btn.addEventListener('click', ()=> selectTab(i)) );
-    requestAnimationFrame(()=> selectTab(0));
-    addEventListener('resize', ()=> requestAnimationFrame(()=> selectTab(tabs.findIndex(t=>t.getAttribute('aria-selected')==='true'))));
-
-    // ====== Modal
-    const modal = document.getElementById('modal');
-    const openBtns = document.querySelectorAll('[data-open-modal]');
-    const closeBtn = document.getElementById('closeModal');
-    openBtns.forEach(b=> b.addEventListener('click', (e)=>{ e.preventDefault(); modal.showModal(); modal.animate([{opacity:0, transform:'translateY(10px)'},{opacity:1, transform:'none'}],{duration:200, easing:'ease'}); }));
-    closeBtn.addEventListener('click', ()=> modal.close());
-    modal.addEventListener('click', (e)=>{ const box = modal.querySelector('iframe').getBoundingClientRect(); if(e.clientY < box.top || e.clientY > box.bottom || e.clientX < box.left || e.clientX > box.right) modal.close(); });
-
-    // ====== Button ripple
-    document.querySelectorAll('.btn').forEach(btn=>{
-      btn.style.overflow='hidden';
-      btn.addEventListener('click', function(e){
-        const r = document.createElement('span');
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        const x = e.clientX - rect.left - size/2; const y = e.clientY - rect.top - size/2;
-        Object.assign(r.style, {position:'absolute', left:x+'px', top:y+'px', width:size+'px', height:size+'px', borderRadius:'50%', background:'rgba(255,255,255,.25)', transform:'scale(0)', opacity:'0.8', pointerEvents:'none'});
-        this.appendChild(r);
-        r.animate([{transform:'scale(0)', opacity:.8},{transform:'scale(1.8)', opacity:0}], {duration:500, easing:'ease-out'}).onfinish = ()=> r.remove();
-      });
-    });
-
-    // ====== Mobile / Desktop structure auto-detect
-    const gamesGrid = document.getElementById('games-grid');
-    const gamesAccordion = document.getElementById('games-accordion');
-    const mq = window.matchMedia('(max-width: 900px)');
-    function applyLayout(){
-      const mobile = mq.matches;
-      gamesGrid.style.display = mobile ? 'none' : 'grid';
-      gamesAccordion.style.display = mobile ? 'grid' : 'none';
-    }
-    mq.addEventListener('change', applyLayout); applyLayout();
-
-    // ====== Bottom nav active state (mobile)
-    const navLinks = document.querySelectorAll('[data-nav]');
-    const sections = ['#top','#features','#games','#troubleshoot','#faq'].map(s=>document.querySelector(s));
-    const spy = new IntersectionObserver((entries)=>{
-      entries.forEach(en=>{
-        if(en.isIntersecting){
-          const id = '#' + en.target.id;
-          navLinks.forEach(a=> a.classList.toggle('active', a.getAttribute('href')===id));
-        }
-      })
-    },{threshold:.5});
-    sections.forEach(sec=> sec && spy.observe(sec));
-
-    // ====== Subtle parallax / tilt + dynamic glow on cards
-    document.querySelectorAll('[data-tilt], .card').forEach(card=>{
-      card.addEventListener('mousemove', (e)=>{
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left; const y = e.clientY - rect.top;
-        const rx = (y/rect.height - .5) * -2; // rotateX
-        const ry = (x/rect.width - .5) * 2;  // rotateY
-        card.style.setProperty('--rx', rx);
-        card.style.setProperty('--ry', ry);
-        // move radial highlight
-        const mx = (x/rect.width*100).toFixed(2) + '%';
-        const my = (y/rect.height*100).toFixed(2) + '%';
-        card.style.setProperty('--mx', mx);
-        card.style.setProperty('--my', my);
-      });
-      card.addEventListener('mouseleave', ()=>{ card.style.removeProperty('--rx'); card.style.removeProperty('--ry'); card.style.removeProperty('--mx'); card.style.removeProperty('--my'); });
-    });
-  </script>
+  <script src="script.js" defer></script>
 </body>
 </html>
